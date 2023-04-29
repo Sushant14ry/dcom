@@ -1,0 +1,62 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+	      <!-- View Student detail End -->
+	      <div class="row">
+	      	<div class="col-md-10 p-4 m-auto shadow single_stud_view">
+	      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+			    <center>
+			      	<h2>Single Student information</h2>
+			     </center><hr>
+	          	<div class="row" th:each=" std : ${view_student}">
+				   <div class="col-lg-3 col-md-6 col-6">
+				     <h5 class="mb-3">Full Name</h5>
+				     <h5 class="mb-3">Faculty</h5>
+				     <h5 class="mb-3">Course Amount</h5>
+				     <h5 class="mb-3">Gender</h5>
+				     <h5 class="mb-3">Email</h5>
+				     <h5 class="mb-3">Phone No</h5>
+				     <h5 class="mb-3">Address</h5>
+				     <h5 class="mb-3">Qualification</h5>
+				     <h5 class="mb-3">Batch Date</h5>
+				     <h5 class="mb-3">Date of Birth</h5>
+				     <h5 class="mb-3">Enroll Date</h5>
+				     <h5 class="mb-3">Guardians Name</h5>
+				     <h5 class="mb-3">Guardians Phone</h5>
+				   </div>
+				    <div class="Student__data col-lg-4 col-md-6 col-6">
+						<h5 class="mb-3"><span th:text="${std.stud_first_name}"></span> <span th:text="${std.stud_last_name}"></span></h5>
+						<h5 class="mb-3" th:text="${std.stud_faculty}">Computer</h5>
+						<h5 class="mb-3" th:text="${std.stud_course_fee}">Computer</h5>
+						<h5 class="mb-3" th:text="${std.stud_gender}">Male</h5>
+						<h5 class="mb-3" th:text="${std.stud_email}">csushant224@gmail.com</h5>
+						<h5 class="mb-3" th:text="${std.stud_phone}">9821224203</h5>
+						<h5 class="mb-3" th:text="${std.stud_address}">9821224203</h5>
+						<h5 class="mb-3" th:text="${std.stud_country}">9821224203</h5>
+						<h5 class="mb-3" th:text="${std.stud_qualification}">9821224203</h5>	
+						<h5 class="mb-3" th:text="${std.stud_batch_year}">2074</h5>
+						<h5 class="mb-3" th:text="${std.stud_dob}">2000-04-14</h5>
+						<h5 class="mb-3" th:text="${std.stud_enroll_date}">2017-08-14</h5>
+						<h5 class="mb-3" th:text="${std.stud_guardians_name}">Dhirendra Prassad Chaudhary</h5>
+						<h5 class="mb-3" th:text="${std.stud_guardians_phone}">9845257274</h5>
+				    </div>
+				    <div class="col-lg-3 col-sm-12"> 
+					    <img th:src="@{'Student_Img/' + ${std.stud_photo}}" class="responsive-img" width="360px;">
+					</div>
+			   </div><hr>
+			 </div>
+		  </div>            
+	      <!-- View Student detail End -->      
+      </div>
+    </div>
+
+<!-- =========================== Main Section End =================================== -->
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

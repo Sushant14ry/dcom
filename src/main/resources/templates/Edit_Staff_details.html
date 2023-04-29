@@ -1,0 +1,95 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+      <div class="row">
+      	<div class="col-md-10 p-4 m-auto shadow">
+      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+	      	<center>
+	      		<h2>Update Staff</h2>
+	      	</center>
+	      	<hr>
+	      	<div class="update_student container">
+	      	  <form action="/update_stf" method="post" enctype="multipart/form-data" class="row g-3" th:object="${edit_staff}">
+			    <input type="hidden" th:field="*{stf_id}">
+			    <div class="form-group col-md-6">
+			       <input type="text" class="form-control" id="stud_first_name" placeholder="Student First Name" th:field="*{staff_first_name}" required>
+			    </div>
+			    <div class="form-group col-md-6">
+			       <input type="text" class="form-control" id="stud_last_name" placeholder="Student Last Name"  th:field="*{staff_last_name}" required>
+			    </div>
+			    <div class="form-group col-md-6">
+			       <select class="form-control" th:field="*{staff_faculty}">
+			         <option selected disabled value="">Faculty</option>
+	                 <option value="DCA">DCA(Diploma in Computer Application)</option>
+	                 <option value="DHM">DHM(Diploma in Hotel Management)</option>
+	                 <option value="+2 Management">+2 MANAGEMENT</option>
+	                 <option value="+2 Computer">+2 COMPUTER</option>
+			      </select>
+			    </div>
+			     <div class="form-group col-md-6 mb-2">
+			       <select class="form-control" th:field="*{staff_gender}">
+			        <option selected disabled value="">Select Gender</option>
+			         <option value="Male">Male</option>
+			         <option value="Female">Female</option>
+			      </select>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			      	<div class="row">
+			      		<div class="col-md-8 mt-3">
+			      			<input class="form-control" type="file" name="staff_imgs" >
+			      		</div>
+			      		<div class="col-md-4">
+					       	<img th:src="@{'Staff_Img/' + ${edit_staff.staff_photos}}" class="responsive-img">
+			      		</div>
+			      	</div>        
+			     </div>
+			    <div class="form-group col-md-6 mb-2">
+			      <input type="email" class="form-control" id="student_email" placeholder="Student Email" th:field="*{staff_email}" required>
+			     </div>
+			     <div class="form-group col-md-6 mb-2">
+			      <input type="text" class="form-control" id="student_phone" placeholder="Student Phone No" th:field="*{staff_phone}" required>
+			     </div>
+			    <div class="form-group col-md-6">
+			       <input type="text" class="form-control" id="student_Address" placeholder="Student Address" th:field="*{staff_address}" required>
+			    </div>
+			     <div class="form-group col-md-6 mb-2">
+			       <select class="form-control" th:field="*{staff_qualification}">
+			        <option selected disabled value="">Qualification</option>
+			        <option value="SEE">SEE</option>
+			        <option value="+2 Management">+2 Management</option>
+			        <option value="+2 Science">+2 Science</option>
+			        <option value="Bachlor">Bachelor</option>
+			      </select>
+			    </div>
+			    <div class="form-group col-md-6 mb-2 mt-4">
+			      <input type="text" class="form-control" id="staff_salary" placeholder="Staff Salary" th:field="*{staff_salary}" required>
+			    </div>
+			    <div class="form-group col-md-6 mb-3">
+			      <input type="date" class="form-control" id="staff_dob" placeholder="Date of Birth" th:field="*{staff_dob}" required>
+			      <span>Date of Birth</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2"> 
+			      <input type="date" class="form-control" id="staff_join_date" placeholder="Join Date" th:field="*{staff_join_date}" required>
+			      <span>Join Date</span>
+			    </div>
+			    <div class="">
+			      <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Update Staff</button>
+			    </div>
+			  </form>
+	      	</div>
+	      </div>
+	    </div>
+      </div>
+    </div>
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>
+

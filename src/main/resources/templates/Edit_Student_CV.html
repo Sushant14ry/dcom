@@ -1,0 +1,102 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+	      <!-- View Student detail End -->
+	      <div class="row">
+	      	<div class="col-md-10 p-4 m-auto shadow single_stud_view">
+	      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+			    <center>
+			      	<h2>Update Student CV</h2>
+			     </center><hr>
+	          	<form action="/upload_cv" method="post" enctype="multipart/form-data" class="row g-3" th:object="${upd_cv}">
+				    <input type="hidden" th:field="*{cv_id}">
+				    <div class="form-group col-md-6 mb-2">
+				      <input type="text" class="form-control" id="cfnam" placeholder="Student First Name" th:field="*{cfnam}" required>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <input type="text" class="form-control" id="clname" placeholder="Student Last Name"  th:field="*{clname}" required>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <select class="form-control" th:field="*{cqualification}" required>
+				        <option selected disabled value="">Enroll Course</option>
+				        <option 
+				            th:each="fc : ${fac_list}"
+				            th:value="${fc.faculty_name}"            		
+				        >[[${fc.faculty_name}]]</option>
+				      </select>
+				    </div>
+				    <div class="form-group col-md-6 mb-2">
+				      <select class="form-control" th:field="*{cgender}" required>
+				        <option selected disabled value="">Select Gender</option>
+				        <option value="Male">Male</option>
+				        <option value="Female">Female</option>
+				      </select>
+				    </div>
+				     <div class="form-group col-md-6 mb-2">
+				       <input type="email" class="form-control" id="cemail" placeholder="Student Email" th:field="*{cemail}" required>
+				     </div>
+				     <div class="form-group col-md-6 mb-2">
+				       <input type="text" class="form-control" id="cphone" placeholder="Student Phone No" th:field="*{cphone}" required>
+				     </div>
+				     <div class="form-group col-md-6">
+				       <input type="text" class="form-control" id="caddress" placeholder="Student Address" th:field="*{caddress}" required>
+				     </div>
+				     <div class="form-group col-md-6">
+				       <input type="text" class="form-control" id="ccountry" placeholder="Student Country" th:field="*{ccountry}" required>
+				     </div>
+				     <div class="form-group col-md-6 mb-2">
+				       <select class="form-control" th:field="*{cbasicqualification}">
+				         <option value="Select Qualification"></option>
+				         <option value="SEE">SEE</option>
+				         <option value="+2 Management">+2 Management</option>
+				         <option value="+2 Science">+2 Science</option>
+				         <option value="Bachlor">Bachelor</option>
+				       </select>
+				     </div>   
+				     <div class="form-group col-md-6 mb-3">
+				       <input type="date" class="form-control" id="cdob" placeholder="Date of Birth" th:field="*{cdob}" required>
+				       <span>Date of Birth</span>
+				     </div>
+				     <div class="form-group col-md-6 mb-2">
+				      	<input class="form-control" type="file" name="cv_imgs" onchange="getImagePreview(event)" required>
+	                <div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="pp_photo" >
+	                              
+	                </div>
+				     </div>
+				     <div class="form-group col-md-6 mb-3">
+				        <img th:src="@{'CV_Photos/' + ${upd_cv.cphoto}}" class="img-thumbnail" style="width: 100px !important; height: 100px !important; margin-top: -16px !important">
+				     </div><hr>
+				     	
+				     <div class="form-group col-md-6 mb-3">
+				       <textarea rows="3" cols="" class="form-control" th:field="*{cedubackground}" placeholder="Education background"></textarea>     
+				     </div>
+				     <div class="form-group col-md-6 mb-3">
+				       <textarea rows="3" cols="" class="form-control" th:field="*{cskills}" placeholder="Skills"></textarea>     
+				     </div>
+				     <div class="form-group col-md-6 mb-3">
+				       <textarea rows="3" cols="" class="form-control" th:field="*{cintrest}" placeholder="Intrest"></textarea>     
+				     </div>
+				     <div class="form-group col-md-6 mb-3">
+				       <textarea rows="3" cols="" class="form-control" th:field="*{cexp}" placeholder="Internship or Experience"></textarea>     
+				     </div>
+				                                             
+				     <div class="">
+				       <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Update Student CV</button>
+				     </div>
+				 </form>
+			 </div>
+		  </div>            
+	      <!-- View Student detail End -->      
+      </div>
+    </div>
+
+<!-- =========================== Main Section End =================================== -->
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

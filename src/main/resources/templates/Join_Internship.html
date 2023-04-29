@@ -1,0 +1,51 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>Joined Internship Student Record</h3>
+              <input type="text" name="Search_Staff" id="search_name_student" placeholder="Search_Joined_Student" style="float:right;">
+                <div class="student_table_data">
+                  <table class="table table-hover mt-4">
+                  <thead class="fixed">
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Faculty</th>
+                       <th>Phone No</th>
+                      <th>Join Date</th>
+                      <th>Country</th>
+                      <th>Department</th>
+                      <th colspan="3" class="center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="search_data_student">
+                    <tr th:each="js, itr : ${Joined_student}">
+                      <th th:text="${itr.count}">1</th>
+                      <!-- <td th:text="${Joined_student.stud_address}">Computer</td>  -->
+                      <td th:text="${js.intern_joindate}">Computer</td>
+                      <td th:text="${js.intern_country}">Computer</td>
+                      <td th:text="${js.intern_department}">Computer</td>
+                      <td>
+                         <!-- <a th:href="@{/view_intern?(id=${std.stud_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="showInterns"><i class="fa-solid fa-eye"></i></a>
+                         <a th:href="@{/edit_intern?(id=${std.stud_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                         <a th:href="@{/interndoc?(id=${std.stud_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Interns"><i class="fa fa-laptop-code"></i></a> -->
+                      </td>
+                   
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+    </div>
+    
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

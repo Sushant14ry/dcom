@@ -1,0 +1,82 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+      <div class="row">
+      	<div class="col-md-10 p-4 m-auto shadow">
+      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+	      	<center>
+	      		<h2>Update InternShip Join Date</h2>
+	      	</center>
+	      	<hr>
+	      	<div class="update_student container" style="height: 60vh !important; overflow: auto">
+	      	  <form action="/upd_intern_date" method="post" enctype="multipart/form-data" class="row g-3" th:object="${intern_join}">
+			    <input type="hidden" th:field="*{intern_id}">
+			    <div class="row mt-4" th:object="${std}">
+			    <input type="hidden" th:field="*{stud_id}">
+			    	<div class="form-group col-md-6 mb-2">
+				       <input type="text" class="form-control" id="stud_first_name" placeholder="Student First Name" th:field="*{stud_first_name}" required>
+				    </div>
+				    <div class="form-group col-md-6 mb-2">
+				       <input type="text" class="form-control" id="stud_last_name" placeholder="Student Last Name"  th:field="*{stud_last_name}" required>
+				    </div>
+				    <div class="form-group col-md-6 mb-2">
+				       <select class="form-control" th:field="*{stud_faculty}">
+				         <option selected disabled value="">Enroll Course</option>
+		                  <option value="DCA">DCA(Diploma in Culnary Arts)</option>
+	                      <option value="DHM">DHM(Diploma in Hotel Management)</option>
+	                      <option value="+2DHM">+2 DHM</option>
+	                      <option value="DHM+DCA">DHM+DCA</option>
+				      </select>
+				    </div>
+				     <div class="form-group col-md-6 mb-2">
+				       <select class="form-control" th:field="*{stud_gender}">
+				        <option selected disabled value="">Select Gender</option>
+				         <option value="Male">Male</option>
+				         <option value="Female">Female</option>
+				      </select>
+				    </div>
+			    </div>
+			    
+			    <div class="form-group col-md-6 mb-2"> 
+			      <input type="date" class="form-control" th:field="*{intern_joindate}" placeholder="Join Date" required>
+			      <span>Join Intern</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2"> 
+			      <input type="date" class="form-control" th:field="*{intern_finishdate}" placeholder="Finish Internship">
+			      <span>Finish Intern</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			      <input type="text" class="form-control" th:field="*{intern_country}" placeholder="Interns Country" required>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			       <select class="form-control" th:field="*{intern_department}" required>
+			        <option selected disabled value="">Department</option>
+			         <option value="Kitchen">Kitchen</option>
+			         <option value="Service">Service</option>
+			         <option value="House Keeping">House Keeping</option>
+			         <option value="Front Desk">Front Desk</option>
+			      </select>
+			    </div>
+			    
+              <!-- Finish rendering Div from Database -->            
+			    <div class="">
+			      <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Update Internship Date</button>
+			    </div>
+			  </form>
+	      	</div>
+	      </div>
+	    </div>
+      </div>
+    </div>
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>
+

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- JQuery CDN LINK -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.2/jQuery.print.js" integrity="sha512-BaXrDZSVGt+DvByw0xuYdsGJgzhIXNgES0E9B+Pgfe13XlZQvmiCkQ9GXpjVeLWEGLxqHzhPjNSBs4osiuNZyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" type="text/css" href="css/dcom2.css">
+    
+    <!-- Custom Font Family Link -->
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@1,8..144,300&display=swap');
+	</style>
+	
+	<!-- Silk Slider Link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Data Table using for Print , Eport, Copy PDF CDN Links -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+    
+    <!-- LightBox CDN Link -->
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    
+    
+    <title>DCOM2</title>
+  </head>
+  <body>
+    
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid nav_data">
+         <a href="/dash"><div style="display: flex; margin-left: -140px; line-height: 20px">
+				<img src="images/clz.jpg" width="80px" height="80px">
+				<div style="margin-left: 16px; width: 100px" class="clzname">
+					<h2>IHIT</h2>
+					<span>College of Hospitality</span>
+				</div>
+        	</div></a>
+        	<div class="center">
+        		<h2>Institute Of Hospitality & Information Technology</h2>
+        	</div>
+        	<div>
+        		<a href="/logouts" class="btn btn-danger text-white logout1"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        	</div>
+        	
+        </div>
+      </nav>
+    </div>
+    
+<!-- =========================== navbar End=================================== -->
+  
+  	<div class="sidebar"><hr class="divider">
+     	<a href="/dash" class=""><i class="fa fa-home"></i> Home</a><hr class="divider">
+     	<button class="dropdown-btn mb-4"><i class="fa fa-user"></i>Student</a>
+		    <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		    <a href="/stud_page" class=""><i class="fa fa-user"></i>Student</a><hr class="divider">
+            <a href="/rep_stud" class=""><i class="fa fa-chart-pie"></i>Student Report</a>
+		</div><hr class="divider">
+      	<a href="/faculty" class=""><i class="fas fa-chalkboard-teacher"></i> Faculty</a><hr class="divider">
+      	<a href="/staff_p" class=""><i class="fa fa-users"></i> Staff</a><hr class="divider">
+      	<div class="dropdown-container">
+		    <a href="/school_gal" class=""><i class="fa-regular fa-money-bill-1"></i> Student Gallery</a><hr class="divider">
+            <a href="/student_gal" class=""><i class="fa-regular fa-money-bill-1"></i> School Gallery</a><hr class="divider">
+		</div>
+		<button class="dropdown-btn mb-4"><i class="fa fa-money-bill-wheat"></i> Expenses</a>
+		    <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		    <a href="/expense" class=""><i class="fa fa-money-bill-wheat"></i> Daily Expenses</a><hr class="divider">
+            <a href="/all_exp" class=""><i class="fa fa-money-bill-wheat"></i> All Expenses</a>
+		</div><hr class="divider">
+      	
+       	<button class="dropdown-btn mb-4"><i class="fa-solid fa-file-invoice-dollar"></i> Account 
+		    <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		    <a href="/student_fee" class=""><i class="fa-regular fa-money-bill-1"></i> Student Fee</a><hr class="divider">
+            <a href="/stf_slry" class=""><i class="fa-regular fa-money-bill-1"></i> Staff Salary</a><hr class="divider">
+            <a href="/idcard" class=""><i class="fa-solid fa-id-card"></i> Generate ID-Card</a><hr class="divider">
+            <a href="/cv" class=""><i class="fa-solid fa-id-card"></i> Generate CV</a><hr class="divider">
+            <a href="/certificate" class=""><i class="fa-solid fa-id-card"></i> Gen-Certificate</a>
+		</div><hr class="divider">
+		<a href="/anual_report" class=""><i class="fa-solid fa-id-card"></i> Anual Report</a><hr class="divider">
+		<button class="dropdown-btn mb-4"><i class="fas fa-image"></i> Gallery 
+		    <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		    <a href="/student_gal" class=""><i class="fa-regular fa-money-bill-1"></i> School Gallery</a><hr class="divider">
+            <a href="/school_gal" class=""><i class="fa-regular fa-money-bill-1"></i> Student Gallery</a><hr class="divider">
+		</div><hr class="divider">
+		<button class="dropdown-btn mb-4"><i class="fa-solid fa-id-card"></i> Internship 
+		    <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		    <a href="/intern_page" class=""><i class="fa-regular fa-money-bill-1"></i>Interns Record</a><hr class="divider">
+            <a href="/join_intern" class=""><i class="fa-regular fa-money-bill-1"></i>Join Intership</a><hr class="divider">
+            <a href="/cmp_intern" class=""><i class="fa-regular fa-money-bill-1"></i>Complete Intership</a>
+		</div><hr class="divider">
+        <!-- <a href="/intern_page" class=""><i class="fa-solid fa-id-card"></i> Internship</a><hr class="divider"> -->
+        <a href="/notice_page" class=""><i class="fa-solid fa-id-card"></i> Notice</a><hr class="divider">
+        <a href="/logouts" class="logout2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+   
+  </div>
+
+<!-- =========================== Sidebar End=================================== -->

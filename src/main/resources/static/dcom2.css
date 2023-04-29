@@ -1,0 +1,430 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+/*Input Box Designing like Pro*/
+input{
+	width: 30%;
+	padding: 10px;
+	font-size: 24px;
+	color: black;
+	letter-spacing: 1px;
+	border: none;
+	outline: none;
+	border-bottom: 4px solid #1D2951 ;
+	margin-right: 4%;
+	margin-top: -3%;
+}
+
+  /*=================== Design Scrollbar Start ==================*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+/*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}*/
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c7d1d3; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+  /*=================== Design Scrollbar Start ==================*/
+
+body{
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.navbar{
+	background-color:#1D2951 ;
+	color: white;
+}
+.navbar h1{
+	color: white;
+	margin-left: 100%;
+}
+.navbar img{
+	color: white;
+	margin-left: 100%;
+}
+
+.sidebar{
+	width: 16%;
+	background-color:#1D2951 ;
+	height: 92vh;
+	float: left;
+	overflow-y:scroll;
+}
+.sidebar a, .dropdown-btn{
+	text-decoration: none;
+	display: block;
+	font-size: 26px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+	margin-left:30px;
+	height: 40px;
+}
+.sidebar i{
+	margin-right: 16px;
+}
+.divider{
+	color: gray;
+}
+.dropdown-container {
+  display: none;
+}
+.dropdown-container a{
+	 padding-left: 12px;
+  	 font-size: 20px;
+  	 font-weight: bold;
+  	 margin-top: 16px;
+  	 margin-left: 26px;
+}
+.fa-caret-down {
+	margin-left: 20px;
+}
+.sidebar .logout2{
+	display: none;
+}
+.sidebar a:hover, .dropdown-btn:hover {
+	color: blue;
+	padding-left: 20px;
+	transition: 0.6s;
+} 
+
+	/*============================== Main Section Start ===========================*/
+
+.main_section{
+	width: 80%;
+	margin-left: 18%;
+	margin-top: 2%;
+	height: 84vh;
+}
+.main_section .main_sec{
+	padding: 2%;
+}
+
+.main_section .main_sec img{
+	width: 60px;
+	height: 60px;
+	
+}
+
+/*-------------------------------------------*/
+
+ /*Home Section Start*/
+ .home_information{
+ 	width: 100%;
+ }
+ .home_information .card{
+ 	height: 160px;
+ 	text-align: center;
+ 	margin-bottom: 12%;
+ 	background-color: #fffde7;
+ }
+ .home_information .card h4{
+ 	font-size: 28px;
+ 	font-weight: bold;
+ }
+ .home_information .card p{
+ 	font-size: 24px;
+ 	font-weight: bold;
+ 	margin-top: 20px;
+ }
+
+/*-------------------------------------------*/
+
+  /*Student Section Start*/
+ .student_information{
+ 	overflow-y: hidden;
+ }
+.student_information h3{
+	text-align: center;
+ 	font-weight: bold;
+ 	text-decoration-line: underline;
+}
+.student_information .student_table_data{
+	overflow-x: scroll;
+	height: 70vh;
+	width: 100%;
+}
+td a i{
+	margin: 2%;
+}
+.main_sec .single_stud_view{
+	width:80%;
+	margin-top:20px;
+	overflow-x: scroll;
+	height: 78vh;
+	padding: 3%;
+}
+.main_sec .single_stud_view img{
+	width: 360px;
+	height: 360px;
+	margin-top: 40px;
+}
+
+ 
+
+/*-------------------------------------------*/
+
+	/*===================== Account Section Start =================*/
+	.student_fee_info{
+		overflow-x: hidden;
+		height: 80vh;
+		width: 100%;
+	}
+	.sidebar ul li .accountCollapse a{
+		margin-top: 20px;
+		font-size: 20px;
+	}
+	
+	/*===================== Student Pay Fee Start =================*/
+	.student_fee_pay{
+		display: flex;
+	}
+	.student_details{
+		width: 60% !important;
+		border: 1px solid black;
+		display: flex;
+		justify-content: flex-start;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.student_details ul li{
+		margin-bottom: 12px;
+	}
+	.stud_det_dyn_data{
+		margin-left: 8% !important;
+	}
+	.student_details_img{
+		width: 40% !important;
+		border: 1px solid red;
+	}
+	.student_details_img img{
+		width: 100%;
+		height: 100%;
+	}
+	
+	
+	/*===================== Generate ID-Card Section Start =================*/
+	
+	.main_sec .single_stud_viewid_card{
+		padding: 20px;
+		height: 70vh;
+	}
+	.idcard{
+          width: 500px;
+          height: 260px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          display: block;
+          padding: 2px;
+        }
+        .idcard_head{
+          width: 100%;
+          height: 100px;
+          display: flex;
+        }
+        .idcard_head .idcard_pic{
+          width: 30%;
+          height: 100%;
+        }
+        .idcard_head .idcard_pic img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain !important;
+          padding: 2px;
+        }
+        .idcard_head .idcard_school_name{
+          width: 70%;
+          height: 100%;
+          text-align: center;
+        }
+        .idcard_head .idcard_school_name h4{
+          font-size: 19px;
+          font-weight: bold;
+          margin-top: 4px;
+        }
+        .idcard_head .idcard_school_name ul li{
+          font-size: 14px;
+          margin-top: -4px;
+          font-weight: 700;
+        }
+        .idcard_head .idcard_school_name .divider{
+        	margin-top: -12px;
+        }
+
+        .idcard_body{
+          width: 100%;
+          height: 160px;
+          display: flex;
+        }
+        .idcard_body .idcard_pic2{
+            width: 30%;
+            height: 100%;
+        }
+        .idcard_body .idcard_pic2 img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill !important;
+            padding: 4px;
+        }
+        .idcard_body .idcard_stu_detail{
+            width: 70%;
+            height: 100%;
+            display: flex;
+        }
+        .idcard_body .idcard_stu_detail ul{
+          margin-top: 8px;
+        }
+        .idcard_body .idcard_stu_detail ul li{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .idcard_body .idcard_stu_detail .signature{
+            position: absolute;
+            bottom: 8px;
+            right: 30px;
+            border-top: 2px solid gray;
+        }
+        
+/*===================== Gallery Section Start =================*/
+        
+        /*===================== Student Gallery Section Start =================*/
+        
+        .show_all_stud_images{
+        	width: 100%;
+        	height: 64vh;
+        	/* border: 1px solid red; */
+        	overflow-y: scroll;
+        }
+        
+        .show_all_stud_images span img{
+        	width: 205px !important;
+        	height: 200px !important;
+        	max-width:250px !important;
+        	min-width:200px !important;
+        	margin: 4px;
+        }
+        
+        .modal-body .show_upload_images{
+        	width: 100%;
+        	height: 20%;
+        	display: contents;
+        	
+        }
+        
+        
+         /*===================== Student Gallery Upload Image Section Start =================*/
+         
+        .image_container{
+			height: 120px;
+			width: 100px;
+			overflow: hidden;
+			margin: 10px;
+			display: flex;
+		}
+		.image_container img{
+			height: 100%;
+			width: auto;
+			object-fit: cover;
+		}
+		.image_container span{
+			top: -14px;
+			right: 8px;
+			color: red;
+			font-size: 28px;
+			font-weight: normal;
+			cursor: pointer;
+		}
+        
+        
+        
+        
+        
+        
+        
+
+       /*===================== Student Internship Section Start =================*/
+		.modal-body .show_intern_upload_images{
+			width: 100%;
+			height: 100;
+			box-sizing: border-box;
+			display: flex;
+			overflow-x: scroll; 
+		}
+		.modal-body .show_intern_upload_images img{
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		.border span{
+			font-weight: bold;
+		}
+	
+	
+/*=================== Media Query Start ====================*/
+
+
+@media(max-width: 1000px){
+	nav .nav_data{
+		margin: 0 12% ;
+	}
+	nav .logout1{
+		display: none;
+	}
+
+	.sidebar{
+		display: none;
+		float: left;
+	}
+	.sidebar .logout2{
+		display: block;
+	}
+	.sidebar a i{
+		display: block;
+	}
+	.main_section{
+		width: 94%;
+		margin-left: 3%;
+		overflow-y: scroll;
+	}
+	
+	.main_sec .single_stud_view{
+		width: 1000%;
+	}
+	.main_sec .single_stud_view img{
+		width: 300px;
+		height: 300px;
+		margin-top: 40px;
+		margin-left: 60px;
+	} 
+}

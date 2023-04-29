@@ -1,0 +1,140 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>Staff Record</h3>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_student_modal">New Staff</a>
+              <a href="/staffExcel" class="btn btn-primary">Export Excel</a>
+              <input type="text" name="Search_Staff" id="search_name_student" placeholder="Search_Staff" style="float:right;">
+                <div class="student_table_data">
+                  <table class="table table-hover mt-4">
+                  <thead class="fixed">
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Faculty</th>
+                      <th>Gender</th>
+                      <th>Photos</th>
+                      <th>Email</th>
+                      <th>Phone No</th>
+                      <th class="center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="search_data_student">
+                    <tr th:each="stf, itr : ${staff_list}">
+                      <th th:text="${itr.count}">>1</th>
+                      <td><span th:text="${stf.staff_first_name}"></span> <span th:text="${stf.staff_last_name}"></span></td>
+                      <td th:text="${stf.staff_faculty}">Computer</td>
+                      <td th:text="${stf.staff_gender}">Male</td>
+                      <td><img th:src="@{'Staff_Img/' + ${stf.staff_photos}}" class="responsive-img"></td>
+                      <td th:text="${stf.staff_email}">csushant224@gmail.com</td>
+                      <td th:text="${stf.staff_phone}">9821224203</td>
+                      <td>
+                        <a th:href="@{/view_s?(id=${stf.stf_id})}" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa-solid fa-eye"></i></a>
+                        <a th:href="@{/edited_s?(id=${stf.stf_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                        <a th:href="@{/delete_s?(id=${stf.stf_id})}" class="btn btn-danger"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+    </div>
+    
+          <!-- Add New Staff Modal Start -->
+            <div class="modal fade" id="new_student_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add New Staff</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12 col-12">
+                          <!-- Add New Student Form Section Start -->
+                          <form action="/staff_p" method="post" enctype="multipart/form-data" class="row g-3">
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="stud_first_name" placeholder="Staff First Name" name="staff_first_name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="stud_last_name" placeholder="Staff Last Name"  name="staff_last_name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <select class="form-control" name="staff_faculty" required>
+                                <option selected disabled value="">Faculty</option>
+                                <option value="DCA">DCA(Diploma in Computer Application)</option>
+                                <option value="DHM">DHM(Diploma in Hotel Management)</option>
+                                <option value="+2 Management">+2 MANAGEMENT</option>
+                                <option value="+2 Computer">+2 COMPUTER</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="staff_gender" required>
+                                <option selected disabled value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input class="form-control" type="file" name="staff_imgs" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="staff_sub_teacher" placeholder="Subject Teacher" name="staff_sub_teacher" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="email" class="form-control" id="staff_email" placeholder="Staff Email" name="staff_email" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="staff_phone" placeholder="Staff Phone No" name="staff_phone" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="staff_address" placeholder="Staff Address" name="staff_address" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="staff_exp" placeholder="Teaching Experience" name="staff_exp" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="staff_qualification">
+                                <option selected disabled value="">Qualification</option>
+                                <option value="SEE">SEE</option>
+                                <option value="+2 Management">+2 Management</option>
+                                <option value="+2 Science">+2 Science</option>
+                                <option value="Bachlor">Bachelor</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="staff_salary" placeholder="Staff Salary" name="staff_salary" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                              <input type="date" class="form-control" id="staff_dob" placeholder="Date of Birth" name="staff_dob" required>
+                              <span>Date of Birth</span>
+                            </div>
+                            <div class="form-group col-md-6 mb-2"> 
+                              <input type="date" class="form-control" id="staff_join_date" placeholder="Join Date" name="staff_join_date" required>
+                              <span>Join Date</span>
+                            </div>
+                            <div class="">
+                              <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Save Staff</button>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Add New Student Modal End -->  
+
+    <!-- ====================== Model Section End ======================= -->
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

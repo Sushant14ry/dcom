@@ -1,0 +1,68 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+		<!-- Student Fee Section Start -->
+        <div class="student_fee_info">
+        <button class="btn btn-secondary" onclick="history.back()">Back</button>
+          <center>
+            <h2>Staff Slary Information</h2>
+          </center>
+          <hr>
+          <div class="stud_dynamic_data" >
+            <div class="Single_student_fee_details" th:object=${stf_details}>
+              <h4>Full Name : <span th:text="${stf_details.staff_first_name}"></span></h4>
+              <h4>Email : <span th:text="${stf_details.staff_email}"></span></h4>
+              <h4>Phone : <span th:text="${stf_details.staff_phone}"></span></h4>
+              <h4>Gender : <span th:text="${stf_details.staff_gender}"></span></h4>
+              <h4>Qualification : <span th:text="${stf_details.staff_qualification}"></span></h4> 
+              <h4>Basic Sallary : <span th:text="${stf_details.staff_salary}"></span></h4> 
+            </div>
+            <div style="float: right">
+            	<a th:href="@{/pay_salry?(id=${stf_details.stf_id})}" class="btn btn-primary">Pay Salary</a>
+            </div><br>
+            <hr>
+            <div class="fee_installment">
+              <table class="table border">
+                <thead>
+                  <tr>
+                    <th>S.N.</th>
+                    <th >Pay Amount</th>
+                    <th >Payment Date</th>
+                     <th >Payment Date</th>
+                    <th >Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="stf_sal : ${stf_salary}">
+                    <td>1</td>
+                    <td th:text="${stf_sal.stf_sal_amount}"></td>
+                    <td th:text="${stf_sal.stf_sal_date}"></td>
+                    <td th:text="${stf_sal.stf_sal_mon}"></td>
+                    <td th:text="${stf_sal.stf_sal_remarks}"></td>
+                  </tr>
+                </tbody>
+                <thead>
+                  <th>Total Amount</th>
+                  <th th:text="${total_stf_sal}">225K</th>
+                </thead>
+              
+              </table>
+            </div>
+          </div>
+        </div>
+      <!-- Student Fee Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+	
+	
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

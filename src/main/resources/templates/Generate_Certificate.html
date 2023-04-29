@@ -1,0 +1,27 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section">
+      <div class="main_sec ">
+      <button class="btn btn-secondary backbtn" style="border: none;outline: none;" onclick="history.back()">Back</button>
+      <button class="btn btn-primary print_certificate" onclick="window.print()" >Print Certificate</button>
+      	<div class="Certificate shadow" id="Certificate">
+	      	<div id="gen" th:object=${gen_cert}>
+	      	   <div class="certi_img">
+	            <img src="images/ihit.png">
+	          </div>
+	          <div class="certi_course">
+	              <p><span th:text="${gen_cert.stud_first_name} " style="margin-right: 10px;"></span> <span th:text="${gen_cert.stud_last_name}"></span></p>
+	          </div> 
+	      	</div>
+        </div>    	
+      </div>
+    </div>
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

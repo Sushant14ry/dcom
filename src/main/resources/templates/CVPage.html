@@ -1,0 +1,146 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>CV Record</h3>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_student_modal">New CV</a>
+              <input type="text" name="Search_Staff" id="search_name_student" placeholder="Search_Student" style="float:right;">
+                <div class="student_table_data">
+                  <table class="table table-hover mt-4">
+                  <thead class="fixed">
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Email</th>
+                      <th>Gender</th>
+                      <th>Photos</th>
+                      <th>Email</th>
+                      <th>Phone No</th>
+                      <th colspan="3" class="center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="search_data_student">
+                    <tr th:each="cv, itr : ${cv_list}">
+                      <th th:text="${itr.count}">1</th>
+                      <td><span th:text="${cv.cfnam}"></span> <span th:text="${cv.clname}"></span></td>
+                      <td th:text="${cv.cemail}">Computer</td>
+                      <td th:text="${cv.cgender}">Male</td>
+                      <td><img th:src="@{'CV_Photos/' + ${cv.cphoto}}" class="responsive-img"></td>
+                      <td th:text="${cv.caddress}">csushant224@gmail.com</td>
+                      <td th:text="${cv.cphone}">9821224203</td>
+                      <td>
+                        <a th:href="@{/gen_cv?(id=${cv.cv_id})}" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa-solid fa-eye"></i></a>
+                        <a th:href="@{/edit_cv?(id=${cv.cv_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                        <a th:href="@{/delete_cv?(id=${cv.cv_id})}" class="btn btn-danger"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+    </div>
+    
+        <!-- ====================== Model Section Start ======================= -->
+
+          <!-- Add New Student Modal Start -->
+            <div class="modal fade" id="new_student_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add New CV</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12 col-12">
+                          <!-- Add New Student Form Section Start -->
+                          <form action="/upload_cv" method="post" enctype="multipart/form-data" class="row g-3">
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="cfnam" placeholder="Student First Name" name="cfnam" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="clname" placeholder="Student Last Name"  name="clname" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <select class="form-control" name="cqualification" required>
+                                <option selected disabled value="" 
+                                >Enroll Course</option>
+                                <option 
+                                		th:each="fc : ${fac_list}"
+                                		th:value="${fc.faculty_name}"
+                                		
+                                >[[${fc.faculty_name}]]</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="cgender" required>
+                                <option selected disabled value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input class="form-control" type="file" name="cv_imgs" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="email" class="form-control" id="cemail" placeholder="Student Email" name="cemail" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="cphone" placeholder="Student Phone No" name="cphone" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="caddress" placeholder="Student Address" name="caddress" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="ccountry" placeholder="Student Country" name="ccountry" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="cbasicqualification">
+                                <option selected disabled value="">Qualification</option>
+                                <option value="SEE">SEE</option>
+                                <option value="+2 Management">+2 Management</option>
+                                <option value="+2 Science">+2 Science</option>
+                                <option value="Bachlor">Bachelor</option>
+                              </select>
+                            </div>   
+                            <div class="form-group col-md-6 mb-3">
+                              <input type="date" class="form-control" id="cdob" placeholder="Date of Birth" name="cdob" required>
+                              <span>Date of Birth</span>
+                            </div><hr>
+                            <div class="form-group col-md-6 mb-3">
+                              <textarea rows="3" cols="" class="form-control" name="cedubackground" placeholder="Education background"></textarea>     
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                              <textarea rows="3" cols="" class="form-control" name="cskills" placeholder="Skills"></textarea>     
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                              <textarea rows="3" cols="" class="form-control" name="cintrest" placeholder="Intrest"></textarea>     
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                              <textarea rows="3" cols="" class="form-control" name="cexp" placeholder="Internship or Experience"></textarea>     
+                            </div>
+                                             
+                            <div class="">
+                              <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Save Student CV</button>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Add New Student Modal End -->
+
+    <!-- ====================== Model Section End ======================= -->
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

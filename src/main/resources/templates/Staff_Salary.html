@@ -1,0 +1,50 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>Staff Salary Record</h3>
+                <div class="student_table_data">
+                  <table class="table table-hover mt-4">
+                  <thead class="fixed">
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Faculty</th>
+                      <th>Gender</th>
+                      <th>Photos</th>
+                      <th>Email</th>
+                      <th>Phone No</th>
+                      <th>Pay Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody id="search_data_student">
+                    <tr th:each="stf, itr : ${staff_list}">
+                      <th th:text="${itr.count}">>1</th>
+                      <td><span th:text="${stf.staff_first_name}"></span> <span th:text="${stf.staff_last_name}"></span></td>
+                      <td th:text="${stf.staff_faculty}">Computer</td>
+                      <td th:text="${stf.staff_gender}">Male</td>
+                      <td><img th:src="@{'Staff_Img/' + ${stf.staff_photos}}" class="responsive-img"></td>
+                      <td th:text="${stf.staff_email}">csushant224@gmail.com</td>
+                      <td th:text="${stf.staff_phone}">9821224203</td>
+                      <td>
+                      	<a th:href="@{/view_pay_salry?(id=${stf.stf_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="View Salary"><i class="fa-solid fa-eye"></i></a>
+                      	<a th:href="@{/pay_salry?(id=${stf.stf_id})}" class="btn btn-success"  data-toggle="tooltip" data-placement="bottom" title="Pay Salary"><i class="fa-regular fa-money-bill-1"></i></a>       	
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+    </div>
+
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

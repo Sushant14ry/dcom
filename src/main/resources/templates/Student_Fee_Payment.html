@@ -1,0 +1,74 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+		<!-- Student Fee Section Start -->
+        <div class="student_fee_info">
+        <button class="btn btn-secondary sfl" onclick="history.back()">Back</button>
+          <center class="sfl">
+            <h2>Student Fee Payment Information</h2>
+          </center>
+          <hr>
+          <div class="stud_dynamic_data" th:object="${stud_fee}">
+            <div class="Single_student_fee_details">
+              <h4>Full Name : <span th:text="${stud_fee.stud_first_name}"></span> <span th:text="${stud_fee.stud_last_name}"></span></h4>
+              <h4>Faculty : <span th:text="${stud_fee.stud_faculty}"></span></h4>
+              <h4>Batch Year : <span th:text="${stud_fee.stud_batch_year}"></span></h4>
+              <h4>Course Total Fee : <span th:text="${stud_fee.stud_course_fee}"></span> </h4> 
+              <a th:href="@{stud_fee_excel?(id=${stud_fee.stud_id})}" class="btn btn-success sfl" style="float:right !important; margin-right: 40px;">Export Excel</a>
+              <a class="btn btn-info sfl" onclick="window.print()">Print Fee List</a>
+            <br>
+            </div><hr>
+            <div class="fee_installment">
+              <table class="table border">
+                <thead>
+                  <tr>
+                    <th>S.N.</th>
+                    <th >Payment Installment</th>
+                    <th >Pay Amount</th>
+                    <th >Payment Date</th>
+                    <th >Remarks</th>
+                    <th class="sfl">Bill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each=" stud_inst , itr : ${stud_fee_list}">
+                    <td th:text="${itr.count}"></td>
+                    <td th:text="${stud_inst.stud_fee_installment}"></td>
+                    <td th:text="${stud_inst.stud_fee_amount}"></td>
+                    <td th:text="${stud_inst.stud_fee_paydate}"></td>
+                    <td th:text="${stud_inst.stud_fee_remarks}"></td>
+                    <td><a th:href="@{bill_gen?(id=${stud_inst.stud_fee_id})}" class="btn btn-success sfl" data-toggle="tooltip" data-placement="bottom" title="Bill Generate"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                  </tr>
+                </tbody>
+                <thead>
+                  <th></th>
+                  <th>Total Amount</th>
+                  <th>[[${all_fee_amount}]]</th>
+                </thead>
+                <thead>
+                  <th></th>
+                  <th>Remaining Amount</th>
+                  <th>[[${stud_fee.stud_course_fee} - ${all_fee_amount}]]</th>
+                
+                  <th><a th:href="@{/pay_Fee?(id=${stud_fee.stud_id})}" class="btn btn-primary sfl">Pay Amount</a></th>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      <!-- Student Fee Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+	
+	
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

@@ -1,0 +1,73 @@
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+      <!-- Faculty Section Start -->
+        <div class="faculty_page">
+            <h3>Faculty Page</h3><hr>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="faculty_form mb-4">
+                  <form action="" method="post">
+                   	<div class="mt-4">
+                    	<select class="form-control" name="faculty_name">
+                        	<option selected disabled value="">Faculty</option>
+                            <option value="DCA">DCA(Diploma in Culnary Arts)</option>
+                            <option value="DHM">DHM(Diploma in Hotel Management)</option>
+                            <option value="+2DHM">+2 DHM</option>
+                            <option value="DHM+DCA">DHM+DCA</option>
+                         </select>
+                    </div>
+                    <!-- <div class="mt-4">
+                      <input type="text" class="form-control" name="faculty_name" placeholder="Faculty Name" required autocomplete="off">
+                    </div> -->
+                     <div class="mt-4">
+                      <input type="text" class="form-control" name="Course_fee" placeholder="Course Fee Amount" required autocomplete="off">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                      <button type="submit" class="btn btn-primary form-control">Add Faculty</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="faculty_table">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Faculty Name</th>
+                        <th>Course Fee Amount</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="fct, itr: ${faculty_list}">
+                        <th th:text="${itr.count}">1</th>
+                        <td th:text="${fct.faculty_name}"></td>
+                        <td th:text="${fct.Course_fee}"></td>
+                        <td>
+                          <a href="edit" class=""><i class="fa fa-edit"></i></a>
+                          <a th:href="@{/delete?(id=${fct.faculty_id})}" class="text-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- Faculty Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

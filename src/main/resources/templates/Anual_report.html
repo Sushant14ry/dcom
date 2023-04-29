@@ -1,0 +1,64 @@
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+      <!-- Home Section Start -->
+        <div class="tab-pane fade show active">
+            <div class="home_information container">
+              <div class="anlys_data">
+	                <div class="row">
+	                  <div class="col-sm-6 col-md-4 col-lg-3">
+	                    <div class="card shadow">
+	                      <div class="card-body bg-primary">
+	                      	<i class="fa fa-user dash_logo"></i>
+	                        <h4>Total Income</h4>
+	                        <p th:text="${Total_Stud_fee}"></p>
+	                      </div>
+	                    </div>
+	                  </div>
+	                  <div class="col-sm-6 col-md-4 col-lg-3">
+	                    <div class="card shadow">
+	                      <div class="card-body bg-success">
+	                        <i class="fa fa-users dash_logo"></i>
+	                        <h4>Total Staff Salary</h4>
+	                        <p th:text="${total_staff_amount}"></p>
+	                      </div>
+	                    </div>
+	                  </div>
+	                  <div class="col-sm-6 col-md-4 col-lg-3">
+	                    <div class="card shadow">
+	                      <div class="card-body bg-primary">
+	                        <i class="fa fa-money-bill-wheat dash_logo"></i>
+	                        <h4>Total Expenses</h4>
+	                        <p th:text="${total_exp_amount}"></p>
+	                      </div>
+	                    </div>
+	                  </div>
+	                  <div class="col-sm-6 col-md-4 col-lg-3">
+	                    <div class="card shadow">
+	                      <div class="card-body bg-success">
+	                      <i class="fas fa-money-bill-alt dash_logo"></i>
+	                        <h4>Total Profit</h4>
+	                        <p>[[${Total_Stud_fee}- (${total_staff_amount}+${total_exp_amount})]]</p>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div><hr>
+				</div>
+              </div>
+            </div>
+        </div>
+  		<!-- Home Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

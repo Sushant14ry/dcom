@@ -1,0 +1,91 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+	      <!-- View Student detail End -->
+	      <div class="row">
+	      	<div class="col-md-10 p-4 m-auto shadow single_stud_view">
+	      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+			    <center>
+			      	<h2>Internship Student information</h2>
+			     </center><hr>
+	          	<div class="row" th:object="${std}">
+				   <div class="col-lg-3 col-md-6 col-6">
+				     <h5 class="mb-3">Full Name</h5>
+				     <h5 class="mb-3">Faculty</h5>
+				     <h5 class="mb-3">Gender</h5>
+				     <h5 class="mb-3">Email</h5>
+				     <h5 class="mb-3">Phone No</h5>
+				     <h5 class="mb-3">Batch Date</h5>
+				     <h5 class="mb-3">Date of Birth</h5>
+				     <h5 class="mb-3">Enroll Date</h5>
+				     <h5 class="mb-3">Guardians Name</h5>
+				     <h5 class="mb-3">Guardians Phone</h5>
+				   </div>
+				    <div class="Student__data col-lg-4 col-md-6 col-6">
+						<h5 class="mb-3"><span th:text="${std.stud_first_name}"></span> <span th:text="${std.stud_last_name}"></span></h5>
+						<h5 class="mb-3" th:text="${std.stud_faculty}">Computer</h5>
+						<h5 class="mb-3" th:text="${std.stud_gender}">Male</h5>
+						<h5 class="mb-3" th:text="${std.stud_email}">csushant224@gmail.com</h5>
+						<h5 class="mb-3" th:text="${std.stud_phone}">9821224203</h5>
+						<h5 class="mb-3" th:text="${std.stud_batch_year}">2074</h5>
+						<h5 class="mb-3" th:text="${std.stud_dob}">2000-04-14</h5>
+						<h5 class="mb-3" th:text="${std.stud_enroll_date}">2017-08-14</h5>
+						<h5 class="mb-3" th:text="${std.stud_guardians_name}">Dhirendra Prassad Chaudhary</h5>
+						<h5 class="mb-3" th:text="${std.stud_guardians_phone}">9845257274</h5>
+				    </div>
+				    <div class="col-lg-3 col-sm-12"> 
+					    <a th:href="@{'Student_Img/' + ${std.stud_photo}}" download><img th:src="@{'Student_Img/' + ${std.stud_photo}}" class="responsive-img" width="360px;"></a>
+					</div>
+			   </div><hr>
+			   <div>
+			   		<h5>Join Interns Date : </h5>
+			   		<h5>Interns Country : </h5>
+			   		<h5>Interns Department : </h5>
+			   </div><hr>
+			   <!-- ===================== Internship Student Section Start ========================= -->
+			   	<div class="document_Photos">
+			   		<div class="row" th:object="${int_doc}">
+			   			<div class=" col-lg-3 col-md-4 col-sm-6 intern_doc_photos">
+			   				<a th:href="@{'Intern_doccument/' + ${int_doc.int_pp_photo}}" download><img th:src="@{'Intern_doccument/' + ${int_doc.int_pp_photo}}" class="img-thumbnail"></a>
+			   				<label>Full Photos</label>
+			   			</div>
+			   			<div class=" col-lg-3 col-md-4 col-sm-6 intern_doc_photos">
+			   				<a th:href="@{'Intern_doccument/' + ${int_doc.int_citizen_photo}}" download><img th:src="@{'Intern_doccument/' + ${int_doc.int_citizen_photo}}" class="img-thumbnail"></a>
+			   				<label>Citizenship</label>
+			   			</div>
+			   			<div class=" col-lg-3 col-md-4 col-sm-6 intern_doc_photos">
+			   				<a th:href="@{'Intern_doccument/' + ${int_doc.int_certificate_photo}}" download><img th:src="@{'Intern_doccument/' + ${int_doc.int_certificate_photo}}" class="img-thumbnail"></a>
+			   				<label>Certificate</label>
+			   			</div>
+			   			<div class=" col-lg-3 col-md-4 col-sm-6 intern_doc_photos">
+			   				<a th:href="@{'Intern_doccument/' + ${int_doc.int_passport_photo}}" download><img th:src="@{'Intern_doccument/' + ${int_doc.int_passport_photo}}" class="img-thumbnail"></a>
+			   				<label>Passport ID</label>
+			   			</div>
+			   			<div class=" col-lg-3 col-md-4 col-sm-6 intern_doc_photos">
+			   				<a th:href="@{'Intern_doccument/' + ${int_doc.int_exp_letter_photo}}" download><img th:src="@{'Intern_doccument/' + ${int_doc.int_exp_letter_photo}}" class="img-thumbnail"></a>
+			   				<label>Experience Letter</label>
+			   			</div>
+			   			<div class=" col-lg-3 col-md-4 col-sm-6 intern_doc_photos">
+			   				<a th:href="@{'Intern_doccument/' + ${int_doc.int_carriculum_photo}}" download><img th:src="@{'Intern_doccument/' + ${int_doc.int_carriculum_photo}}" class="img-thumbnail"></a>
+			   				<label>Extra Carriculum</label>
+			   			</div>
+			   			<a th:href="@{/del_doc?(id=${int_doc.int_id})}" class="btn btn-danger">Delete Doc</a>
+			   		</div>
+			   	</div><hr class="divider">
+	            <!-- ===================== Internship Student Section End ========================= -->
+			 </div>
+		  </div>            
+	      <!-- View Student detail End -->      
+      </div>
+    </div>
+
+<!-- =========================== Main Section End =================================== -->
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

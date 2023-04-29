@@ -1,0 +1,95 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	      <!-- View Student detail End -->
+	      <div class="row">
+	      	<div class="col-md-8 p-4 m-auto single_stud_view">
+	      	<div class="acbtns">
+	      		<button class="btn btn-secondary" onclick="history.back()">Back</button>
+	      		<button class="btn btn-primary" onclick="window.print()">Print CV</button>
+	      	</div>
+	      <div class="cv_section">
+          <div class="row" th:object=${gen_cv}>
+            <h2>Curriculum Vitae</h2>
+            <!-- CV Header Section Start -->
+            <div class="cv_header">
+              <div class=" col-md-8 col-sm-8 cv_data">
+                  <ul>
+                    <li>Full Name</li>
+                    <li>Gender </li>
+                    <li>Email ID </li>
+                    <li>Phone No </li>
+                    <li>Date of Birth </li>
+                    <li>Address </li>
+                    <li>Qualification </li>
+                  </ul>
+                  <ul>
+                    <li><span th:text=${gen_cv.cfnam}></span> <span th:text=${gen_cv.clname}></span></li>
+                    <li th:text="${gen_cv.cgender}"></li>
+                    <li th:text="${gen_cv.cemail}"></li>
+                    <li th:text="${gen_cv.cphone}"></li>
+                    <li th:text="${gen_cv.cdob}"></li>
+                    <li><span th:text="${gen_cv.caddress}"></span>,<span th:text="${gen_cv.caddress}">,</span></li>
+                    <li th:text="${gen_cv.cqualification}"></li>
+                  </ul>
+              </div>
+              <div class="col-md-3 col-sm-3 cv_img">
+                <img th:src="@{'CV_Photos/'+${gen_cv.cphoto}}" class="cv_photo" width="200px" height="200px">
+              </div>
+            </div>
+            <!-- CV Header Section End -->
+            <!-- Education Background Section Start -->
+            <div class="edu_background">
+              <h4>Education Background</h4>
+              <div class="edu_background_details">
+                <span style="margin-left: 10%;margin-bottom: 4%;"><li th:text="${gen_cv.cedubackground}"></li></span>
+              </div>
+            </div>
+            <!-- Education Background Section End -->
+      		
+      		<!-- Experience Section Start -->
+            <div class="intrest">
+              <h4>Experience</h4>
+              <div class="intrest_info">
+                <ul>
+                  <li th:text="${gen_cv.cexp}"></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Experience Section End -->
+      
+            <!-- Skill Section Start -->
+            <div class="skills">
+              <h4>Skills</h4>
+              <div class="skills_info">
+                <ul>
+                  <li th:text="${gen_cv.cskills}"></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Skill Section End -->
+            <!-- Intrest Section Start -->
+            <div class="intrest">
+              <h4>Intrest</h4>
+              <div class="intrest_info">
+                <ul>
+                  <li th:text="${gen_cv.cskills}"></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Intrest Section End -->
+            
+          </div>
+        </div>
+			 </div>
+		  </div>            
+	      <!-- View Student detail End -->      
+
+<!-- =========================== Main Section End =================================== -->
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

@@ -1,0 +1,79 @@
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+      <!-- Faculty Section Start -->
+        <div class="faculty_page">
+            <h3 class="text-center">School All Expenses</h3><hr>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="faculty_form mb-4">
+                  <form action="/find_exp" method="post">
+                     <div class="mt-4">
+                     	<input type="date" name="e_from" val class="form-control" required>
+                     	<label>From</label>
+                     </div>
+                     <div class="mt-4">
+                     	<input type="date" name="e_to" class="form-control" required>
+                     	<label>To</label>
+                     </div>                
+                    <div class="col-md-12 mt-3">
+                      <button type="submit" class="btn btn-primary form-control">Search Expenses</button>
+                    </div><hr>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="faculty_table">
+                  <table id="example" class="display nowrap table" style="width:100%">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Expenses Name</th>
+                        <th>Expenses Remark</th>
+                         <th>Expenses Amount</th>
+                        <th>Expenses Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="exp, itr: ${foundata}">
+                        <th th:text="${itr.count}">1</th>
+                        <td th:text="${exp.exp_name}"></td>
+                        <td th:text="${exp.exp_remark}"></td>
+                        <td th:text="${exp.exp_amount}"></td>
+                        <td th:text="${exp.exp_date}"></td>
+                        <td>
+                          <a th:href="@{/rep_exp_edit?(id=${exp.exp_id})}" class=""><i class="fa fa-edit"></i></a>
+                          <a th:href="@{/rep_exp_delete?(id=${exp.exp_id})}" class="text-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <thead th:object="${foundata}">
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Total Amount</th>
+                         <th th:text="${total_exp_amount}"></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- Faculty Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

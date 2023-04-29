@@ -1,0 +1,62 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>School Gallery</h3>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#upload_student_photo_modal">Upload Photos</a><hr class="divider">
+          </div>
+          
+          <div class="show_all_stud_images">
+          		<span th:each="stud_img_nam : ${stud_imagList}">
+          			<a th:href="@{'/Student_Gallery/'+${stud_img_nam} }" data-lightbox="modals" th:data-title="${stud_img_nam} " data-button="download"><img th:alt="${stud_img_nam}" th:src="@{'/Student_Gallery/'+${stud_img_nam} }"></a>
+          		</span>
+          </div>
+      </div>
+    </div>
+    
+        <!-- ====================== Model Section Start ======================= -->
+
+          <!-- Add New Student Modal Start -->
+            <div class="modal fade" id="upload_student_photo_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Upload Photos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12 col-12">
+                          <!-- Add New Student Form Section Start -->
+                          <form action="/upload_stud" method="post" enctype="multipart/form-data" id="form" class="row g-3">                      
+						      <div class="form-group col-md-12 mb-2">
+						        <input class="form-control" type="file" id="Image" name="stud_imgs" multiple required> 
+						        
+						      </div>
+						      <div class="form-group col-md-12 border mb-2 show_upload_images" id="container">
+						      
+						      </div>
+						      <div class="">
+						        <button class="btn btn-primary form-control mt-2" type="submit" onclick="document.getElementById('Image')"><i class="fas fa-image"></i> Upload Photos</button>
+						      </div>
+						 </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Add New Student Modal End -->
+
+    <!-- ====================== Model Section End ======================= -->
+<!-- =========================== Main Section End =================================== -->
+	
+	
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

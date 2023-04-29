@@ -1,0 +1,62 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+
+<!-- =========================== Main Section Start=================================== -->
+  <div style="position: absolute;margin-left: 20%; margin-top: 6%;" class="hide_back_print_stdfeebill">
+  	 <button class="btn btn-secondary" onclick="history.back()">Back</button>
+  </div>
+  <div class="main_section" id="bill_gen">
+      <div class="bill_size shadow border">
+      	<!-- Bill Head Section Start -->
+		<div class="bill_head">
+			<div class="left_head">
+				<img src="images/clz.jpg" width="100px">
+				<div class="bill_clzname">
+					<h4>IHIT Technology</h4>
+					<span>Affliated From OTHM And CTEVT</span>
+				</div>
+			</div>
+			<div class="right_head">
+				<h5>Institute Of Hospitality & Information Technology</h5>
+				<span>Dhangadhi, Kailali, Nepal</span><br>
+				<span>www.ihit.edu.np</span>
+			</div>
+		</div>
+		<div class="receipt">
+			<h4 onclick="window.print()">receipt</h4>
+		</div>
+		<!-- Bill Body Section Start -->
+		<div class="rec_date" th:each="sfl : ${stud_fee_list}">
+			<p>Receipt No : <span class="bill_bod"></span> </p>
+			<p>Date : <span class="bill_bod" >[[${sfl.stud_fee_paydate}]]</span> </p>
+		</div>
+		<!-- Student and package Information -->
+		<div >
+			<div class="stu_bill_body" th:object="${stud_fee}">
+				<p>Received with Thanking from M/S : <span class="bill_bod" th:text="${stud_fee.stud_first_name }+' '+${stud_fee.stud_last_name}" >Sushant Chaudhary</span> </p>
+				<p>On <span th:text="${Installment}"></span> of :  <span class="bill_bod" th:text="${stud_fee.stud_faculty}">Diploma in Hotel Management</span> </p>
+				<div class="cpy">
+					<p>Batch of Year : <span class="bill_bod" th:text="${stud_fee.stud_batch_year}">First</span> </p>
+				</div>
+				<p>The Total Rupees in (Words) : <span class="bill_bod" th:text="${amountWord}"></span> </p>
+			</div>
+			<!-- Amount And Signature -->
+			<div class="acc_sing" th:each=" stud_inst , itr : ${stud_fee_list}">
+				<p class="amount">NRS. <span th:text="${stud_inst.stud_fee_amount}">40000</span></p>
+				<p class="sing">Authorised Signature</p>
+			</div>
+	      </div>
+	   </div>
+  </div>
+  <div style="position: absolute;margin-left: 58%; margin-top: -6%;" class="hide_back_print_stdfeebill">
+  	 <button class="btn btn-Primary" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print Bill</button>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+	
+	
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

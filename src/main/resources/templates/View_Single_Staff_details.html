@@ -1,0 +1,54 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+      <!-- View Student detail End -->
+      <div class="row">
+      	<div class="col-md-10 p-4 m-auto shadow single_stud_view">
+      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+	        <center>
+	      		<h2>Single Staff information</h2>
+	      	</center><hr>
+          	<div class="row" th:each="stf : ${view_staff}">
+			   	<div class="col-lg-3 col-md-6 col-6">
+			     	<h5 class="mb-3">Full Name</h5>
+			     	<h5 class="mb-3">Faculty</h5>
+			     	<h5 class="mb-3">Gender</h5>
+			     	<h5 class="mb-3">Email</h5>
+			     	<h5 class="mb-3">Phone No</h5>
+			     	<h5 class="mb-3">Address</h5>
+			     	<h5 class="mb-3">Qualification</h5>
+			     	<h5 class="mb-3">Basic Salary</h5>
+			     	<h5 class="mb-3">Date of Birth</h5>
+			     	<h5 class="mb-3">Enroll Date</h5>
+			   	</div>
+			    <div class="Student__data col-lg-4 col-md-6 col-6">
+					<h5 class="mb-3"><span th:text="${stf.staff_first_name}"></span> <span th:text="${stf.staff_last_name}"></span></h5>
+					<h5 class="mb-3" th:text="${stf.staff_last_name}">Computer</h5>
+					<h5 class="mb-3" th:text="${stf.staff_gender}">Male</h5>
+					<h5 class="mb-3" th:text="${stf.staff_email}">csushant224@gmail.com</h5>
+					<h5 class="mb-3" th:text="${stf.staff_phone}">9821224203</h5>
+					<h5 class="mb-3" th:text="${stf.staff_address}">Kalanki, Kathmandu</h5>
+					<h5 class="mb-3" th:text="${stf.staff_qualification}">+2 Management</h5>
+					<h5 class="mb-3" th:text="${stf.staff_salary}">2074</h5>
+					<h5 class="mb-3" th:text="${stf.staff_dob}">2000-04-14</h5>
+					<h5 class="mb-3" th:text="${stf.staff_join_date}">2017-08-14</h5>
+			    </div>
+			    <div class="col-lg-3 col-sm-12"> 
+				    <img th:src="@{'Staff_Img/' + ${stf.staff_photos}}" class="responsive-img" width="360px;">
+				</div>            
+      		</div>
+      </div>
+      <!-- View Student detail End -->
+      </div>
+    </div>
+
+<!-- =========================== Main Section End =================================== -->
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

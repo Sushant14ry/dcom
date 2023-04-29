@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- JQuery CDN LINK -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" type="text/css" href="css/login2.css">
+	<title>DCOM LOGIN</title>
+</head>
+<body>
+	<div class="container">
+		<div class="login_box">
+			<div class="create_acc_img">
+				<img src="https://www.udel.edu/content/referenced-components/home-page-references/2022-q1/_jcr_content/par_udel_panel/columngenerator_457747539/par/panelforpages/par_1/columngenerator_1844387066/par_0/columngenerator/par_0/calloutfullimage.img.jpg/1633461236511.jpg" class="responsive-img">
+			</div>
+			<div class="img_txt">
+					<div class="txt_chng">
+						<h1>Welcome Back !</h1>
+						<p>To keep Connected With us please login with your personal info</p>
+						<div class="SingUp_btn">
+							<a href="/singup"><input type="submit" name="" class="submit_btn" value="SignUp"></a>
+						</div>
+					</div>
+			</div>
+			<div class="create_acc_form">
+				<div class="singup_header">
+					<h1>Login Page</h1>
+					<div class="social_container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social"><i class="fab fa-google"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+					<span>Or Use your Email for Registration</span>
+				</div>
+				<form action="/login" method="post">
+					<p>[[${log_msg}]]</p>
+					<div class="col-md-10 m-auto col-sm-12">
+					    <input type="email" class="form-control input_text" name="reg_email" placeholder="Enter Email or Number" required>
+					</div>
+					<div class="col-md-10 m-auto col-sm-12">
+					    <input type="password" class="form-control input_text" name="reg_password" placeholder="Enter Password" required>
+					</div>
+					<div class="col-md-4 m-auto col-sm-12">
+					    <input type="submit" name="" class="submit_btn" value="SignIn">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

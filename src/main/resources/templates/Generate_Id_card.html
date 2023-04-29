@@ -1,0 +1,61 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+	      <!-- View Student detail End -->
+			    <!-- Student ID-Card Section Start -->
+			    <a class="btn btn-primary print_idcard" onclick="window.print()" >Print ID-Card</a>
+		        <div class="idcard shadow" th:each="std : ${view_student}" style="border: 2px solid gray !important;" id="idcard" >
+		            <!-- ID-Card Head Start -->
+		            <div class="idcard_head">
+		                <div class="idcard_pic">
+		                    <img src="images/clz.jpg" class="responsive-img">
+		                </div>
+		                <div class="idcard_school_name">
+		                    <h4>Institute Of Hospitality & Information Technology</h4>
+		                    <ul>
+		                        <li>( Affliated to CTEVT,OTHM)</li>
+		                        <li>Dhangadhi,Kailali</li>
+		                    </ul>
+		                  <hr style="border: 1px solid gray; margin-top: -10px">
+		                </div>
+		            </div>
+		            <!-- ID-Card Head End -->
+		            <!-- ID-Card Body Start -->
+		            <div class="idcard_body">
+		                <div class="idcard_pic2">
+		                   <img th:src="@{'Student_Img/' + ${std.stud_photo}}" >
+		                </div>
+		                <div class="idcard_stu_detail">
+		                    <ul>
+		                      <li>Name</li>
+		                      <li>Faculty</li>
+		                      <li>DOB</li>
+		                      <li>Address</li>
+		                      <li>Exp-Date</li>
+		                    </ul>
+		                    <ul>
+		                      <li><span th:text="${std.stud_first_name}"></span> <span th:text="${std.stud_last_name}"></span></li>
+						      <li th:text="${std.stud_faculty}">Computer</li>
+						      <li th:text="${std.stud_dob}">2022-030-34</li>
+						      <li th:text="${std.stud_address}">Address</li>
+						      <li th:text="${std.stud_dob}">2022-030-34</li>
+		                    </ul>
+		                    <li class="signature">Signature</li>
+		                </div>
+		            </div>
+		            <!-- ID-Card Body End -->
+		      </div>
+		  <!-- Student ID-Card Section End -->
+	  </div>
+	</div>
+
+<!-- =========================== Main Section End =================================== -->
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

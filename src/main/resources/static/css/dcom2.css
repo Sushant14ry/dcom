@@ -1,0 +1,944 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+/*Input Box Designing like Pro*/
+input{
+	width: 30%;
+	padding: 10px;
+	font-size: 24px;
+	color: black;
+	letter-spacing: 1px;
+	border: none;
+	outline: none;
+	border-bottom: 4px solid #1D2951 ;
+	margin-right: 4%;
+	margin-top: -3%;
+}
+
+  /*=================== Design Scrollbar Start ==================*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+/*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}*/
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c7d1d3; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+  /*=================== Design Scrollbar Start ==================*/
+
+body{
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.navbar{
+	background-color:#1D2951 ;
+	color: white;
+}
+.navbar a{
+	color: white;
+	text-decoration: none;
+}
+
+.navbar img{
+	color: white;
+	margin-left: 100%;
+	margin-top: 10px;
+}
+.navbar .clzname{
+	margin-top: 6px;
+}
+
+.sidebar{
+	width: 16%;
+	background-color:#1D2951 ;
+	height: 92vh;
+	float: left;
+	overflow-y:scroll;
+}
+.sidebar a, .dropdown-btn{
+	text-decoration: none;
+	display: block;
+	font-size: 26px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+	margin-left:30px;
+	height: 40px;
+}
+.sidebar i{
+	margin-right: 16px;
+}
+.divider{
+	color: gray;
+}
+.dropdown-container {
+  display: none;
+}
+.dropdown-container a{
+	 padding-left: 12px;
+  	 font-size: 20px;
+  	 font-weight: bold;
+  	 margin-top: 16px;
+  	 margin-left: 26px;
+  	 color: blue;
+}
+.fa-caret-down {
+	margin-left: 20px;
+}
+.sidebar .logout2{
+	display: none;
+}
+.sidebar a:hover, .dropdown-btn:hover {
+	color: blue;
+	padding-left: 20px;
+	transition: 0.6s;
+} 
+
+.dropdown-container a:hover{
+	color: white;
+	padding-left: 20px;
+	transition: 0.6s;
+}
+	/*============================== Main Section Start ===========================*/
+
+.main_section{
+	width: 80%;
+	margin-left: 18%;
+	margin-top: 2%;
+	height: 84vh;
+}
+.main_section .main_sec{
+	padding: 2%;
+}
+
+.main_section .main_sec img{
+	width: 60px;
+	height: 60px;
+	
+}
+
+/*-------------------------------------------*/
+
+ /*Home Section Start*/
+ .home_information{
+ 	width: 100%;
+ }
+ .home_information .card{
+ 	height: 160px;
+ 	text-align: center;
+ 	margin-bottom: 8%;
+ 	background-color: #fffde7;
+ 	color: white;
+ }
+ .home_information .card h4{
+ 	font-size: 24px;
+ 	font-weight: bold;
+ }
+ .home_information .card p{
+ 	font-size: 24px;
+ 	font-weight: bold;
+ 	margin-top: 8px;
+ }
+ 
+ .home_information .dash_logo{
+ 	font-size: 36px;
+ 	margin-bottom: 12px;
+ }
+ 
+/*  Silk Carousel */
+
+	.home_information .border{
+		width: 100%;
+		height: 30%;
+	}
+	.home_information .silk_caro{
+		display: flex;
+		text-align: center;
+	}
+ 	.home_information .silk_caro img{
+ 		width: 318px;
+ 		height: 190px;
+ 		margin: 4px;
+ 	}
+ 
+ 
+
+	/*===================== Student Section Start =================*/
+
+  /*Student Section Start*/
+	 .student_information{
+	 	overflow-y: hidden;
+	 }
+	.student_information h3{
+		text-align: center;
+	 	font-weight: bold;
+	 	text-decoration-line: underline;
+	}
+	.student_information .student_table_data{
+		overflow-x: scroll;
+		height: 70vh;
+		width: 100%;
+	}
+	td a i{
+		margin: 2%;
+	}
+	.main_sec .single_stud_view{
+		width:80%;
+		margin-top:20px;
+		overflow-x: scroll;
+		height: 78vh;
+		padding: 3%;
+	}
+	.main_sec .single_stud_view img{
+		width: 360px;
+		height: 360px;
+		margin-top: 40px;
+	}
+	
+/*-------------------------------------------*/
+
+	/*===================== Expense Section Start =================*/
+	
+	@media print{
+		
+	}
+
+	/*===================== Account Section Start =================*/
+	.student_fee_info{
+		overflow-x: hidden;
+		height: 80vh;
+		width: 100%;
+	}
+	.sidebar ul li .accountCollapse a{
+		margin-top: 20px;
+		font-size: 20px;
+	}
+	
+	/*===================== Student Pay Fee Start =================*/
+	.student_fee_pay{
+		display: flex;
+	}
+	.student_details{
+		width: 60% !important;
+		border: 1px solid black;
+		display: flex;
+		justify-content: flex-start;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.student_details ul li{
+		margin-bottom: 12px;
+	}
+	.stud_det_dyn_data{
+		margin-left: 8% !important;
+	}
+	.student_details_img{
+		width: 40% !important;
+		border: 1px solid red;
+	}
+	.student_details_img img{
+		width: 100%;
+		height: 100%;
+	}
+	
+	@media print{
+		.fee_installment{
+			margin-top: -40px;
+		}
+		.sfl{
+			display: none !important;
+		}
+	
+	}
+	
+	
+	/*===================== Student Pay Fee Bill Generate Start =================*/
+	#bill_gen{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.bill_size{
+		width: 60%;
+		height: 60%;
+		box-sizing: border-box;
+		padding: 12px;
+	}
+	.bill_head{
+		width: 100%;
+		height: 120px;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+	}
+	.left_head{
+		width: 40%;
+		height: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 8px;
+	}
+	.left_head .bill_clzname{
+		margin-left: 8px;
+	}
+	.right_head{
+		width: 40%;
+		height: 100%;
+		padding: 8px;
+	}
+	.right_head h5{
+		text-transform: uppercase;
+	}
+	.receipt h4{
+		text-align:center;
+		background: blue;
+		text-transform: uppercase;
+		color: white;
+		padding: 4px;
+		width: 16%;
+		margin: auto;
+		margin-top: -4px;
+		cursor: pointer;
+	}
+	.rec_date{
+		display: flex;
+		justify-content: space-between;
+		margin: 0 16px;
+		margin-top: -20px;
+	}
+	.rec_date .bill_bod{
+		border-bottom: 2px dotted gray;
+		font-weight: bold;
+	}
+	.stu_bill_body p{
+		margin: 0 16px;
+		margin-bottom: 12px;
+	}
+	.stu_bill_body .cpy{
+		display: flex;
+		justify-content: space-between;
+		margin-right: 40px;
+	}
+	.stu_bill_body .bill_bod{
+		border-bottom: 4px dotted gray;	
+		font-weight: bold;
+	}
+	.acc_sing{
+		display: flex;
+		justify-content: space-between;
+		margin: 0 16px;
+		margin-top: 20px;
+		font-weight: bold;
+	}
+	.acc_sing .amount{
+		width: 16%;
+		border : 1px solid gray;
+		padding: 8px;
+	}
+	.acc_sing .sing{
+		border-top: 2px dotted gray;
+		margin-top: 20px;
+	}
+	
+	@media print{
+		.bill_size{
+			margin-top: -520px !important;
+		}
+		.hide_back_print_stdfeebill{
+			display: none !important;
+		}
+	}
+	
+	
+	/*===================== Generate ID-Card Section Start =================*/
+
+		.idcard{
+          width: 500px;
+          height: 260px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          display: block;
+          padding: 2px;
+        }
+        .idcard_head{
+          width: 100%;
+          height: 100px;
+          display: flex;
+        }
+        .idcard_head .idcard_pic{
+          width: 30%;
+          height: 100%;
+        }
+        .idcard_head .idcard_pic img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain !important;
+          padding: 2px;
+        }
+        .idcard_head .idcard_school_name{
+          width: 70%;
+          height: 100%;
+          text-align: center;
+        }
+        .idcard_head .idcard_school_name h4{
+          font-size: 19px;
+          font-weight: bold;
+          margin-top: 4px;
+        }
+        .idcard_head .idcard_school_name ul li{
+          font-size: 14px;
+          margin-top: -4px;
+          font-weight: 700;
+        }
+        .idcard_head .idcard_school_name .divider{
+        	margin-top: -12px;
+        }
+
+        .idcard_body{
+          width: 100%;
+          height: 160px;
+          display: flex;
+        }
+        .idcard_body .idcard_pic2{
+            width: 30%;
+            height: 100%;
+        }
+        .idcard_body .idcard_pic2 img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill !important;
+            padding: 12px;
+        }
+        .idcard_body .idcard_stu_detail{
+            width: 70%;
+            height: 100%;
+            display: flex;
+        }
+        .idcard_body .idcard_stu_detail ul{
+          margin-top: 8px;
+        }
+        .idcard_body .idcard_stu_detail ul li{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .idcard_body .idcard_stu_detail .signature{
+            position: absolute;
+            bottom: 8px;
+            right: 30px;
+            border-top: 2px solid gray;
+        }
+        
+        @media print{
+        	.nav_data{
+        		display: none !important;
+        	}
+        	.print_idcard{
+        		display: none !important;
+        	}
+        	.idcard{
+        		width: 90%;
+        		margin: auto;
+        		position: absolute;
+        		top: 140;
+        	}
+        	
+        	/* header section of Idcard */
+        	.idcard_head .idcard_school_name h4{
+	          font-size: 18px;
+	          font-weight: bold;
+	          margin-top: 4px;
+	        }
+        	.idcard_pic{
+        		height: 90% !important;
+        	}
+        	/* Body section idcard */
+        	.idcard_stu_detail{
+        		font-size: 10px;
+        	}
+        	.idcard_pic2{
+        		height: 90% !important;
+        	}
+        	.idcard_head .idcard_school_name h4{
+	          font-size: 16px;
+	          font-weight: bold;
+	          margin-top: 4px;
+	        }
+        	
+        }
+        
+	/*===================== Generate Certificate Section Start =================*/
+	
+        .main_sec .Certificate{
+        	width: 64%;
+        	margin: auto;
+        	position: relative;
+        	margin-top: -4%;
+        }
+	    .Certificate .certi_img{
+	      width: 100%;
+    	  height: 80vh;
+	      box-sizing: border-box;
+	      position: absolute;
+	    }
+	    .Certificate .certi_img img{
+	      width: 100%;
+	      height: 100%;
+	      object-fit: fill;
+	    }
+	    .Certificate .certi_course p{
+	       position: absolute;
+	       display: flex;
+	       justify-content: center;
+	       align-items: center;
+	       font-size: 28px;
+	       font-weight: bold;
+	       z-index: 13222;
+	       height: calc(90vh - 50px);
+	       width: 100%;
+	       font-family: 'Roboto Serif', serif;
+	    }
+        
+        @media print{
+        	.nav_data{
+        		display: none !important;
+        	}
+        	.print_certificate{
+        		display: none !important;
+        	}
+        	.backbtn{
+        		margin-top: 10px !important;
+        	}
+        	 .main_sec .Certificate{
+        	 	width: 100%;
+        	 	height: 100%;	 
+        	 }
+        	 .certi_img{
+        	 	width: 100%;
+        	 	height: 100%;
+        	 	object-fit:cover;
+        	 }
+        }
+        
+     /*===================== Generate CV Section Start =================*/
+     .cv_section{
+		width: 70%;
+		border: 1px solid red;
+		box-sizing: border-box;
+		padding: 12px;
+		margin: auto;
+		margin-top: -50px;
+	}
+	.acbtns{
+		display: flex;
+		justify-content: space-between;
+	}
+	.cv_section h2{
+		font-size: 28px;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		height: 20%;
+	}
+	.cv_section .cv_header{
+		display: flex;
+		height:180px !important;
+	}
+	.cv_section .cv_header .cv_data{
+		width: 74%;
+		border: 1px solid black;
+		display: flex;
+		justify-content: flex-start;
+	}
+	.cv_section .cv_header .cv_data ul{
+		margin: 2% 1%;
+	}
+	.cv_section .cv_header .cv_data li{
+		font-size: 13px;
+		font-weight: bold;
+		margin-bottom: 4px;
+	}
+	.cv_section .cv_header .cv_img{
+		width: 26%;
+		border: 1px solid red;
+		box-sizing: border-box;
+	}
+	.cv_section .cv_header .cv_img img{
+		width: 100%;
+		height: 100%;
+		object-fit: fill;
+		margin-top: 0 !important;
+	}
+	@media print{
+		.acbtns{
+			display: none !important;
+		}
+	}
+	
+	/*============ Education Background Section Start ===============*/
+	.edu_background h4{
+		font-size: 16px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-top: 2%;
+		margin-bottom: 8px;
+	}
+	.edu_background_details{
+		display: flex;
+	}
+	.edu_background_details .edu_background_details_year{
+		width: 20%;
+		border: 1px solid red;
+		box-sizing: border-box;
+	}
+	.edu_background_details .date_date li{
+		margin-left: -20px;
+		margin-top: 20px;
+	}
+	.edu_background_details .edu_background_details_info{
+		width: 80%;
+		border: 1px solid blue;
+		box-sizing: border-box;
+	}
+	
+	/*============ Experience Section Start ===============*/
+	.experience h4{
+		font-size: 16px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-top: 4%;
+		margin-bottom: 8px;
+	}
+	.experience_details{
+		display: flex;
+	}
+	.experience_details .experience_details_year{
+		width: 20%;
+		border: 1px solid red;
+		box-sizing: border-box;
+	}
+	.experience_details .date_date li{
+		margin-left: -20px;
+		margin-top: 20px;
+	}
+	.experience_details .experience_details_info{
+		width: 80%;
+		border: 1px solid blue;
+		box-sizing: border-box;
+	}
+	
+	/*============ Skills Section Start ===============*/
+	
+	.skills h4{
+		font-size: 16px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-top: 4%;
+		margin-bottom: 8px;
+	}
+	.skills .skills_info li{
+		list-style-type:circle;
+	}
+	
+	/*============ Intrest Section Start ===============*/
+	
+	.intrest h4{
+		font-size: 16px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-top: 2%;
+		margin-bottom: 8px;
+	}
+	.intrest .intrest_info li{
+		list-style-type:circle;
+	}
+	
+	@media print{
+		.cvPage{
+			display: none !important;
+		}
+	}
+	
+	@media(max-width: 1020px){
+		.cv_section{
+			width: 100%;
+			padding: 12px;
+			margin-top: 12px;
+		}
+	}
+        
+         
+/*===================== Gallery Section Start =================*/
+        
+        /*===================== Student Gallery Section Start =================*/
+        
+        .show_all_stud_images{
+        	width: 100%;
+        	height: 64vh;
+        	/* border: 1px solid red; */
+        	overflow-y: scroll;
+        }
+        
+        .show_all_stud_images span img{
+        	width: 205px !important;
+        	height: 200px !important;
+        	max-width:250px !important;
+        	min-width:200px !important;
+        	margin: 4px;
+        }
+        
+        .modal-body .show_upload_images{
+        	width: 100%;
+        	height: 20%;
+        	display: contents;
+        	
+        }
+               
+         /*===================== Student Gallery Upload Image Section Start =================*/
+         
+        .image_container{
+			height: 120px;
+			width: 100px;
+			overflow: hidden;
+			margin: 10px;
+			display: flex;
+		}
+		.image_container img{
+			height: 100%;
+			width: auto;
+			object-fit: cover;
+		}
+		.image_container span{
+			top: -14px;
+			right: 8px;
+			color: red;
+			font-size: 28px;
+			font-weight: normal;
+			cursor: pointer;
+		}
+        
+       /*===================== Student Internship Section Start =================*/
+		.modal-body .show_intern_upload_images{
+			width: 100%;
+			height: 100;
+			box-sizing: border-box;
+			display: flex;
+			overflow-x: scroll; 
+		}
+		.modal-body .show_intern_upload_images img{
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		.border span{
+			font-weight: bold;
+		}
+		
+		 /*===================== Student Internship info Section Start =================*/
+		 .single_stud_view .intern_doc_photos{
+		 	margin-bottom: 32px;
+		 }
+		 .single_stud_view .intern_doc_photos label{
+		 	text-align: center;
+		 	font-weight: bold;
+		 }
+		.single_stud_view .intern_doc_photos .img-thumbnail{
+			height: 260px;
+			margin-left: -4px;
+			margin-top: -2px;
+			
+		}
+		
+		.single_stud_view .download{
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+	
+/*=================== Media Query Start ====================*/
+
+
+@media(max-width: 1000px){
+	nav .nav_data{
+		margin: 0 12% ;
+	}
+	nav .logout1{
+		display: none;
+	}
+
+	.sidebar{
+		display: none;
+		float: left;
+	}
+	.sidebar .logout2{
+		display: block;
+	}
+	.sidebar a i{
+		display: block;
+	}
+	.main_section{
+		width: 94%;
+		margin-left: 3%;
+		overflow-y: scroll;
+	}
+	
+	.main_sec .single_stud_view{
+		width: 1000%;
+	}
+	.main_sec .single_stud_view img{
+		width: 300px;
+		height: 300px;
+		margin-top: 40px;
+		margin-left: 60px;
+	} 
+	
+/* 	Silk Slider */
+	
+	.home_information .border{
+		width: 100%;
+		height: 30%;
+	}
+	.home_information .silk_caro{
+		display: flex;
+		text-align: center;
+	}
+ 	.home_information .silk_caro img{
+ 		width: 226px;
+ 		height: 190px;
+ 		margin: 4px;
+ 	}
+	
+		/*===================== Student Pay Fee Bill Generate Start =================*/
+	#bill_gen{
+		display: flex;
+		justify-content: center;
+	}
+	.bill_size{
+		width: 100%;
+		height: 400px;
+		box-sizing: border-box;
+		padding: 12px;
+		margin-top: -200px;
+		border: 2px solid gray;
+	}
+	.bill_head{
+		width: 100%;
+		height: 120px;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+	}
+	.left_head{
+		width: 46%;
+		height: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 8px;
+	}
+	.left_head .bill_clzname{
+		margin-left: 8px;
+	}
+	.right_head{
+		width: 46%;
+		height: 100%;
+		padding: 8px;
+	}
+	.right_head h5{
+		text-transform: uppercase;
+	}
+	.receipt h4{
+		text-align:center;
+		background: blue;
+		text-transform: uppercase;
+		color: white;
+		padding: 4px;
+		width: 16%;
+		margin: auto;
+		margin-top: -4px;
+		cursor: pointer;
+	}
+	.rec_date{
+		display: flex;
+		justify-content: space-between;
+		margin: 0 16px;
+		margin-top: -20px;
+	}
+	.rec_date .bill_bod{
+		border-bottom: 2px dotted gray;
+		font-weight: bold;
+	}
+	.stu_bill_body p{
+		margin: 0 16px;
+		margin-bottom: 12px;
+	}
+	.stu_bill_body .cpy{
+		display: flex;
+		justify-content: space-between;
+	}
+	.stu_bill_body .bill_bod{
+		border-bottom: 4px dotted gray;	
+		font-weight: bold;
+	}
+	.acc_sing{
+		display: flex;
+		justify-content: space-between;
+		margin: 0 16px;
+		margin-top: 20px;
+		font-weight: bold;
+	}
+	.acc_sing .amount{
+		width: 24%;
+		border : 1px solid gray;
+		padding: 8px;
+	}
+	.acc_sing .sing{
+		border-top: 2px dotted gray;
+		margin-top: 20px;
+	}
+	
+	
+	/*===================== Student Internship info Section Start =================*/
+	.single_stud_view .intern_doc_photos .img-thumbnail{
+		height: 220px;
+		margin-left: -2px;
+		margin-bottom: 8px;
+	}
+}
+
+	
+
+

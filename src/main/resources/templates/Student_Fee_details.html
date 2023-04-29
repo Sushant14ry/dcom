@@ -1,0 +1,51 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>Student Fee Record</h3>
+              <a href="" class="btn btn-primary">Export Excel</a>
+                <div class="student_table_data">
+                  <table class="table table-hover mt-4">
+                  <thead class="fixed">
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Faculty</th>
+                      <th>Gender</th>
+                      <th>Photos</th>
+                      <th>Email</th>
+                      <th>Phone No</th>
+                      <th colspan="3" class="center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="search_data_student">
+                    <tr th:each="std, itr : ${student_list}">
+                      <th th:text="${itr.count}">>1</th>
+                      <td><span th:text="${std.stud_first_name}"></span> <span th:text="${std.stud_last_name}"></span></td>
+                      <td th:text="${std.stud_faculty}">Computer</td>
+                      <td th:text="${std.stud_gender}">Male</td>
+                      <td><img th:src="@{'Student_Img/' + ${std.stud_photo}}" class="responsive-img"></td>
+                      <td th:text="${std.stud_email}">csushant224@gmail.com</td>
+                      <td th:text="${std.stud_phone}">9821224203</td>
+                      <td>
+                        <a th:href="@{/view_Fee?(id=${std.stud_id})}" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa-solid fa-eye"></i></a>
+                        <a th:href="@{/pay_Fee?(id=${std.stud_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Pay Salary"><i class="fa-regular fa-money-bill-1"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+    </div>
+    
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

@@ -1,0 +1,166 @@
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+      <div class="row">
+      	<div class="col-md-10 p-4 m-auto shadow">
+      	<button class="btn btn-secondary" onclick="history.back()">Back</button>
+	      	<center>
+	      		<h2>Upload InternShip Doccument</h2>
+	      	</center>
+	      	<hr>
+	      	<div class="update_student container" style="height: 60vh !important; overflow: auto">
+	      	  <form action="/intern" method="post" enctype="multipart/form-data" class="row g-3" th:object="${edit_student}">
+			    <input type="hidden" th:field="*{stud_id}">
+			    <div class="form-group col-md-6">
+			       <input type="text" class="form-control" id="stud_first_name" placeholder="Student First Name" th:field="*{stud_first_name}" required>
+			    </div>
+			    <div class="form-group col-md-6">
+			       <input type="text" class="form-control" id="stud_last_name" placeholder="Student Last Name"  th:field="*{stud_last_name}" required>
+			    </div>
+			    <div class="form-group col-md-6">
+			       <select class="form-control" th:field="*{stud_faculty}">
+			         <option selected disabled value="">Enroll Course</option>
+	                  <option value="DCA">DCA(Diploma in Culnary Arts)</option>
+                      <option value="DHM">DHM(Diploma in Hotel Management)</option>
+                      <option value="+2DHM">+2 DHM</option>
+                      <option value="DHM+DCA">DHM+DCA</option>
+			      </select>
+			    </div>
+			     <div class="form-group col-md-6 mb-2">
+			       <select class="form-control" th:field="*{stud_gender}">
+			        <option selected disabled value="">Select Gender</option>
+			         <option value="Male">Male</option>
+			         <option value="Female">Female</option>
+			      </select>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			      	<div class="row">
+			      		<div class="col-md-8 mt-3">
+			      			<input class="form-control" type="file" name="imgs" >
+			      		</div>
+			      		<div class="col-md-4">
+					       	<img th:src="@{'Student_Img/' + ${edit_student.stud_photo}}" class="responsive-img">
+			      		</div>
+			      	</div>        
+			     </div>
+			    <div class="form-group col-md-6 mb-2">
+			      <input type="email" class="form-control" id="student_email" placeholder="Student Email" th:field="*{stud_email}" required>
+			     </div>
+			     <div class="form-group col-md-6 mb-2">
+			      <input type="text" class="form-control" id="student_phone" placeholder="Student Phone No" th:field="*{stud_phone}" required>
+			     </div>
+			    <div class="form-group col-md-6">
+			       <input type="text" class="form-control" id="student_Address" placeholder="Student Address" th:field="*{stud_address}" required>
+			    </div>
+			     <div class="form-group col-md-6 mb-2">
+			       <select class="form-control" th:field="*{stud_qualification}">
+			        <option selected disabled value="">Qualification</option>
+			        <option value="SEE">SEE</option>
+			        <option value="+2 Management">+2 Management</option>
+			        <option value="+2 Science">+2 Science</option>
+			        <option value="Bachlor">Bachelor</option>
+			      </select>
+			    </div>
+			    <div class="form-group col-md-6 mb-2 mt-4">
+			      <input type="text" class="form-control" id="student_batch" placeholder="Student Batch Year" th:field="*{stud_batch_year}" required>
+			    </div>
+			    <div class="form-group col-md-6 mb-3">
+			      <input type="date" class="form-control" id="joindate" placeholder="Date of Birth" th:field="*{stud_dob}" required>
+			      <span>Date of Birth</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2"> 
+			      <input type="date" class="form-control" id="joindate" placeholder="Join Date" th:field="*{stud_enroll_date}" required>
+			      <span>Enroll Date</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			      <input type="text" class="form-control" id="guardians_name" placeholder="Guardians name" th:field="*{stud_guardians_name}" required>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			      <input type="text" class="form-control" id="guardians_phone_no" placeholder="Guardians Phone Number" th:field="*{stud_guardians_phone}" required>
+			    </div><hr class="divider">
+			    
+			    <div class="form-group col-md-6 mb-2"> 
+			      <input type="date" class="form-control" name="intern_joindate" placeholder="Join Date" required>
+			      <span>Join Intern</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2"> 
+			      <input type="date" class="form-control" name="intern_finishdate" placeholder="Finish Internship">
+			      <span>Finish Intern</span>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			      <input type="text" class="form-control" name="intern_country" placeholder="Interns Country" required>
+			    </div>
+			    <div class="form-group col-md-6 mb-2">
+			       <select class="form-control" name="intern_department" required>
+			        <option selected disabled value="">Department</option>
+			         <option value="Kitchen">Kitchen</option>
+			         <option value="Service">Service</option>
+			         <option value="House Keeping">House Keeping</option>
+			         <option value="Front Desk">Front Desk</option>
+			      </select>
+			    </div>
+			   <!--  Upload Doccument Section Start -->
+			     
+			     <div class="form-group col-md-6 mb-2 border">
+                  	<span>Student PP Size Photo</span>
+                    <input class="form-control" type="file" name="int_img" onchange="getImagePreview(event)" required>
+	                <div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="pp_photo">
+	                              
+	                </div>
+                  </div>
+                  <div class="form-group col-md-6 mb-2 border">
+                        <span>Citizenship</span>
+                        <input class="form-control" type="file" name="int_img" onchange="getImagePreview1(event)" multiple required>
+                       	<div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="citizenship">
+                              
+                        </div>
+                  </div>
+                  <div class="form-group col-md-6 mb-2 border">
+                         <span>Certificate</span>
+                         <input class="form-control" type="file" name="int_img" onchange="getImagePreview2(event)" multiple required>
+                         <div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="certificate">
+                              
+                         </div>
+                  </div> 
+                  <div class="form-group col-md-6 mb-2 border">
+                         <span>Passport ID</span>
+                         <input class="form-control" type="file" name="int_img" onchange="getImagePreview3(event)" multiple required>
+                         <div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="passport">
+                              
+                         </div>
+                  </div>
+                  <div class="form-group col-md-6 mb-2 border">
+                         <span>Experience Letter</span>
+                         <input class="form-control" type="file" onchange="getImagePreview4(event)" name="int_img" multiple required>
+                         <div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="experience_letter">
+                              
+                         </div>
+                  </div> 
+                  <div class="form-group col-md-6 mb-2 border">
+                         <span>Extra Carriculum Certificate</span>
+                         <input class="form-control" type="file" name="int_img" onchange="getImagePreview5(event)" multiple required>
+                         <div class="form-group col-md-12 border mb-2 mt-2 show_intern_upload_images" id="extra_carriculum">
+                              
+                         </div>
+                </div>            
+			    <div class="">
+			      <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Upload Student Doccument</button>
+			    </div>
+			  </form>
+	      	</div>
+	      </div>
+	    </div>
+      </div>
+    </div>
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>
+

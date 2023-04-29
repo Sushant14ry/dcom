@@ -1,0 +1,175 @@
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start =================================== -->
+	<div class="main_section shadow">
+      <div class="main_sec ">
+          <div class="student_information">
+              <h3>Student Record</h3>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_student_modal">New Student</a>
+              <a href="/excel" class="btn btn-success">Export Excel</a>
+              <input type="text" name="Search_Staff" id="search_name_student" placeholder="Search_Student" style="float:right;">
+                <div class="student_table_data">
+                  <!-- <table id="example" class="display " style="width:100%;overflow-x: scroll; "> -->
+			    <table class="table table-hover mt-4" >
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Faculty</th>
+                      <th>Gender</th>
+                      <th>Photos</th>
+                      <th>Email</th>
+                      <th>Phone No</th>
+                      <th colspan="3" class="center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="search_data_student">
+                    <tr th:each="std, itr : ${student_list}">
+                      <th th:text="${itr.count}">1</th>
+                      <td><span th:text="${std.stud_first_name}"></span> <span th:text="${std.stud_last_name}"></span></td>
+                      <td th:text="${std.stud_faculty}">Computer</td>
+                      <td th:text="${std.stud_gender}">Male</td>
+                      <td><img th:src="@{'Student_Img/' + ${std.stud_photo}}" class="responsive-img"></td>
+                      <td th:text="${std.stud_email}">csushant224@gmail.com</td>
+                      <td th:text="${std.stud_phone}">9821224203</td>
+                      <td>
+                        <a th:href="@{/view?(id=${std.stud_id})}" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa-solid fa-eye"></i></a>
+                        <a th:href="@{/edited?(id=${std.stud_id})}" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                        <a th:href="@{/deleted?(id=${std.stud_id})}" class="btn btn-danger"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+			    </table>
+                </div>
+            </div>
+          </div>
+    </div>
+    
+        <!-- ====================== Model Section Start ======================= -->
+
+          <!-- Add New Student Modal Start -->
+            <div class="modal fade" id="new_student_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add New Student</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12 col-12">
+                          <!-- Add New Student Form Section Start -->
+                          <form action="/stud_page" method="post" enctype="multipart/form-data" class="row g-3">
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="stud_first_name" placeholder="Student First Name" name="stud_first_name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="stud_last_name" placeholder="Student Last Name"  name="stud_last_name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <select class="form-control" name="stud_faculty" required>
+                                <option selected disabled value="" 
+                                >Enroll Course</option>
+                                <option 
+                                		th:each="fc : ${faculty_list}"
+                                		th:value="${fc.faculty_name}"
+                                		
+                                >[[${fc.faculty_name}]]</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="stud_semester" required>
+                                <option selected disabled value="">Select Semester</option>
+                                <option value="First Sem">First Semesterester</option>
+                                <option value="Second Semester">Second Semester</option>
+                                <option value="Third Semester">Third Semester</option>
+                                <option value="Fourth Semester">Fourth Semester</option>
+                                <option value="Fifth Semester">Fifth Semester</option>
+                                <option value="Sixth Semester">Sixth Semester</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="stud_gender" required>
+                                <option selected disabled value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="stud_course_fee" placeholder="Student Course Amount" name="stud_course_fee" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input class="form-control" type="file" name="imgs" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="email" class="form-control" id="student_email" placeholder="Student Email" name="stud_email" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="student_phone" placeholder="Student Phone No" name="stud_phone" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <input type="text" class="form-control" id="student_Address" placeholder="Student Address" name="stud_address" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="stud_qualification">
+                                <option selected disabled value="">Qualification</option>
+                                <option value="SEE">SEE</option>
+                                <option value="+2 Management">+2 Management</option>
+                                <option value="+2 Science">+2 Science</option>
+                                <option value="Bachlor">Bachelor</option>
+                              </select>
+                            </div>
+                            <!-- <div class="form-group col-md-6 mb-2 mt-4">
+                              <input type="text" class="form-control" id="student_batch" placeholder="Student Batch Year" name="stud_batch_year" required>
+                            </div> -->
+                            <div class="form-group col-md-6 mb-2">
+                              <select class="form-control" name="stud_batch_year">
+                                <option selected disabled value="">Student Batch Year</option>
+                                <option value="2078">2078</option>
+                                <option value="2079">2079</option>
+                                <option value="2080">2080</option>
+                                <option value="2081">2081</option>
+                                <option value="2082">2082</option>
+                                <option value="2083">2083</option>
+                                <option value="2084">2084</option>
+                                <option value="2085">2085</option>
+                                <option value="2086">2086</option>
+                                <option value="2087">2087</option>
+                                <option value="2088">2088</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                              <input type="date" class="form-control" id="joindate" placeholder="Date of Birth" name="stud_dob" required>
+                              <span>Date of Birth</span>
+                            </div>
+                            <div class="form-group col-md-6 mb-2"> 
+                              <input type="date" class="form-control" id="joindate" placeholder="Join Date" name="stud_enroll_date" required>
+                              <span>Enroll Date</span>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="guardians_name" placeholder="Guardians name" name="stud_guardians_name" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-2">
+                              <input type="text" class="form-control" id="guardians_phone_no" placeholder="Guardians Phone Number" name="stud_guardians_phone" required>
+                            </div>                       
+                            <div class="">
+                              <button class="btn btn-primary form-control mt-2" type="submit"><i class="fa fa-user"></i> Save Student</button>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Add New Student Modal End -->
+
+    <!-- ====================== Model Section End ======================= -->
+<!-- =========================== Main Section End =================================== -->
+
+
+<!-- =========================== Header Section Start =================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

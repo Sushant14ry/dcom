@@ -1,0 +1,84 @@
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+      <!-- Faculty Section Start -->
+        <div class="faculty_page">
+            <h3 class="text-center">School Daily Expenses</h3><hr>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="faculty_form mb-4">
+                  <form action="/expan" method="post">
+                     <div class="mt-4">
+                     	<input type="text" class="form-control" name="exp_name" placeholder="Particular Name" required autocomplete="off">
+                    </div>
+                    <div class="mt-4">
+                    	<textarea rows="3" class="form-control" name="exp_remark" placeholder="Particular Remark" required></textarea>
+                    </div>
+                    <div class="mt-4">
+                     	<input type="date" class="form-control" name="exp_date" placeholder="Expenses Date" required autocomplete="off">
+                    </div>
+                    <div class="mt-4">
+                     	<input type="text" class="form-control" name="exp_amount" placeholder="Expenses Amount" required autocomplete="off">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                      <button type="submit" class="btn btn-primary form-control">Add Expenses</button>
+                    </div>
+                  </form>
+                </div><hr>
+                <a href="/all_exp_excel" class="btn btn-success">Export All Data Excel</a>
+              </div>
+              <div class="col-md-8">
+                <div class="faculty_table">
+                  <table id="example" class="display nowrap table" style="width:100%">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Expenses Name</th>
+                        <th>Expenses Remark</th>
+                         <th>Expenses Amount</th>
+                        <th>Expenses Date</th>
+                        <th class="exph">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="exp, itr: ${exp_list}">
+                        <th th:text="${itr.count}">1</th>
+                        <td th:text="${exp.exp_name}"></td>
+                        <td th:text="${exp.exp_remark}"></td>
+                        <td th:text="${exp.exp_amount}"></td>
+                        <td th:text="${exp.exp_date}"></td>
+                        <td class="exph">
+                          <a th:href="@{/exp_edit?(id=${exp.exp_id})}" class=""><i class="fa fa-edit"></i></a>
+                          <a th:href="@{/exp_delete?(id=${exp.exp_id})}" class="text-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                     <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Total Amount</th>
+                         <th th:text="${total_exp_amount}"></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- Faculty Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_footer.html"></div>

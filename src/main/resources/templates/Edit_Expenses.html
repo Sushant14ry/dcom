@@ -1,0 +1,46 @@
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_header.html"></div>
+
+<!-- =========================== Main Section Start=================================== -->
+
+  <div class="main_section shadow">
+      <div class="main_sec ">
+      <!-- Faculty Section Start -->
+        <div class="faculty_page">
+            <h3 class="text-center">Edit School Daily Expenses</h3><hr>
+            <div class="row">
+              <div class="col-md-6 m-auto shadow">
+                <div class="faculty_form mb-4">
+                  <form action="/expan" method="post" th:object="${edit_exp}">
+                  <input type="hidden" th:field="*{exp_id}">
+                     <div class="mt-4">
+                     	<input type="text" class="form-control" th:field="*{exp_name}" placeholder="Particular Name" required autocomplete="off">
+                    </div>
+                    <div class="mt-4">
+                    	<textarea rows="3" class="form-control" th:field="*{exp_remark}" placeholder="Particular Remark" required></textarea>
+                    </div>
+                    <div class="mt-4">
+                     	<input type="date" class="form-control" th:field="*{exp_date}" placeholder="Expenses Date" required autocomplete="off">
+                    </div>
+                    <div class="mt-4">
+                     	<input type="text" class="form-control" th:field="*{exp_amount}" placeholder="Expenses Amount" required autocomplete="off">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                      <button type="submit" class="btn btn-primary form-control">Update Expenses</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- Faculty Section End -->
+      </div>
+  </div>
+
+<!-- =========================== Main Section End=================================== -->
+
+<!-- =========================== Header Section Start=================================== -->
+	
+	<div th:insert="dash_footer.html"></div>
